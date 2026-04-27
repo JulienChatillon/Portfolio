@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de Julien Chatillon | BTS SIO option SISR</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a3020'/><text x='50' y='68' font-family='sans-serif' font-size='50' font-weight='bold' fill='%23eab308' text-anchor='middle'>JC</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <main class="main-content" style="margin-left: 0; width: 100%;">
+        <section class="section" style="min-height: calc(100vh - 80px);">
+            <div class="page-header reveal"
+                style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 2rem;">
+                <a href="index.html#projets" class="btn-back" style="margin-bottom: 30px;"><i
+                        class="fa-solid fa-arrow-left"></i> Retour au
+                    portfolio</a>
+                <h1 class="section-title" style="margin-bottom: 0;">Réalisation 1 : Création d'un labo d'expérimentation
+                </h1>
+            </div>
+
+            <div class="card reveal glow-effect project-detail-grid">
+                <div class="project-content">
+                    <h2 class="gold-text">Contexte</h2>
+                    <p>Ce projet est né d'un besoin technique et matériel concret : mon ordinateur personnel manquait de
+                        ressources (CPU/RAM) pour faire fonctionner simultanément les nombreuses machines virtuelles
+                        nécessaires à mes études. Pour pallier cette limite, j'ai pris l'initiative de déployer un
+                        hyperviseur sur un matériel plus performant et d'y accéder à distance. Cette démarche initiale
+                        s'est rapidement transformée en la conception d'un véritable centre de données virtualisé
+                        (Homelab). Ce laboratoire constitue aujourd'hui le socle technique de l'ensemble de mes projets
+                        et me permet d'héberger tous mes environnements de travaux pratiques.</p>
+
+                    <h2 class="gold-text" style="margin-top: 2rem;">Objectifs</h2>
+                    <ul>
+                        <li>Déployer un cluster de virtualisation (Proxmox VE) sur deux nœuds physiques pour répartir la
+                            charge des machines virtuelles et des conteneurs.</li>
+                        <li>Mettre en place un accès distant sécurisé (VPN WireGuard) pour administrer l'infrastructure
+                            et accéder aux ressources depuis n'importe où.</li>
+                        <li>Concevoir une topologie réseau segmentée avec un pare-feu principal (pfSense) pour assurer
+                            le routage et le filtrage des flux.</li>
+                        <li>Déployer diverses machines virtuelles (Windows, Linux, services) pour créer un environnement
+                            d'expérimentation complet pour mes TP.</li>
+                    </ul>
+
+                    <h2 class="gold-text" style="margin-top: 2rem;">Technologies utilisées</h2>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;">
+                        <span
+                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">Proxmox
+                            VE</span>
+                        <span
+                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">pfSense</span>
+                        <span
+                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">Virtualisation</span>
+                        <span
+                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">WireGuard
+                            VPN</span>
+                        <span
+                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">Linux</span>
+                    </div>
+
+                    <h2 class="gold-text" style="margin-top: 2rem;">Compétences travaillées</h2>
+                    <h3>Gérer le patrimoine informatique</h3>
+                    <ul>
+                        <li>Recenser et identifier les ressources numériques</li>
+                        <li>Gérer les sauvegardes</li>
+                    </ul>
+                    <h3>Mettre à disposition des utilisateurs un service informatique</h3>
+                    <ul>
+                        <li>Réaliser les tests d'integration et d'acceptation d'un service</li>
+                        <li>Déployer un service</li>
+                    </ul>
+                    <h3>Organisation de son développement professionnel</h3>
+                    <ul>
+                        <li>Mettre en place son environnement d'apprentissage personnel</li>
+                        <li>Développer son projet professionnel</li>
+                    </ul>
+
+                    <h2 class="gold-text" style="margin-top: 2rem;">Bilan</h2>
+                    <p>Ce projet m'a permis de transformer une simple contrainte matérielle en une opportunité
+                        d'apprentissage majeure sur la gestion d'une infrastructure complète. J'ai particulièrement
+                        développé mes compétences en réseau et en sécurité lors de l'implémentation du tunnel WireGuard
+                        : il a fallu concevoir des règles de pare-feu précises sur pfSense pour autoriser le trafic
+                        entrant, tout en protégeant le reste du réseau interne. Aujourd'hui, je dispose d'un
+                        environnement bac à sable fluide et performant qui me permet d'expérimenter de nouvelles
+                        technologies (AD, Linux, supervision) et de réaliser l'intégralité de mes travaux pratiques en
+                        totale autonomie et mobilité.</p>
+                </div>
+                <div class="project-visual">
+                    <img src="assets/projet1.png" alt="Illustration du projet">
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; <span id="year"></span> Julien. Créé pour le BTS SIO SISR.</p>
+        </footer>
+    </main>
+
+    <script>
+        // Spotlight Card Glow Effect for single page
+        const cards = document.querySelectorAll('.glow-effect');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .glow-effect::before {
+                background: radial-gradient(
+                    800px circle at var(--mouse-x) var(--mouse-y), 
+                    rgba(212, 175, 55, 0.4), 
+                    transparent 40%
+                );
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Animation reveal on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(reveal => {
+                setTimeout(() => {
+                    reveal.classList.add('active');
+                }, 100);
+            });
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+
+</html>

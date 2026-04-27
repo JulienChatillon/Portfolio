@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de Julien Chatillon | BTS SIO option SISR</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a3020'/><text x='50' y='68' font-family='sans-serif' font-size='50' font-weight='bold' fill='%23eab308' text-anchor='middle'>JC</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Mobile Navigation Toggle -->
+    <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" data-visible="false">
+        <div class="sidebar-header">
+            <img src="assets/profil.jpg" alt="Julien Chatillon" class="profile-img">
+            <h1>Julien Chatillon</h1>
+            <p>Étudiant BTS SIO SISR</p>
+            <div class="social-links-sidebar">
+                <a href="mailto:chatillon35310@gmail.com" aria-label="E-Mail">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+                <a href="https://www.instagram.com/julien_chatillon/" target="_blank" rel="noopener noreferrer"
+                    aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/julien-chatillon-731b6120b" target="_blank"
+                    rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#accueil" class="nav-link active"><i class="fa-solid fa-house"></i> Accueil</a></li>
+                <li><a href="#apropos" class="nav-link"><i class="fa-solid fa-user"></i> À propos</a></li>
+                <li><a href="#bts" class="nav-link"><i class="fa-solid fa-graduation-cap"></i> Le BTS SIO</a></li>
+                <li><a href="#certifications" class="nav-link"><i class="fa-solid fa-certificate"></i>
+                        Certifications</a></li>
+                <li><a href="#projets" class="nav-link"><i class="fa-solid fa-folder-open"></i> Réalisations</a></li>
+                <li><a href="#veille" class="nav-link"><i class="fa-solid fa-satellite-dish"></i> Veille Info</a></li>
+                <li><a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Accueil -->
+        <section id="accueil" class="hero">
+            <div class="hero-content reveal">
+                <h1>Julien Chatillon</h1>
+                <p class="subtitle">Bienvenue sur mon portfolio</p>
+            </div>
+        </section>
+
+        <!-- À propos -->
+        <section id="apropos" class="section">
+            <h2 class="section-title reveal">À propos de moi</h2>
+            <div class="card reveal glow-effect">
+                <div class="glow-border"></div>
+                <div class="card-content">
+                    <p>Bonjour et bienvenue sur mon portfolio, je m'appelle Julien Chatillon et j'ai 29 ans.</p>
+                    <br>
+                    <p>Passionné par l'informatique depuis l'enfance, j'ai décidé de transformer cette passion en
+                        métier.<br> Après 10 années riches en expériences en tant que dessinateur en bureau d'études
+                        dans
+                        l'agencement, j'ai fait le choix d'une reconversion professionnelle pour me tourner vers
+                        l'administration des systèmes et réseaux.</p>
+                    <br>
+                    <p>Aujourd'hui étudiant au sein de MyDigitalSchool Angers en BTS SIO (Services Informatiques aux
+                        Organisations) option SISR, j'ai à
+                        cœur d'accompagner les utilisateurs, d'analyser leurs besoins et de résoudre leurs
+                        problématiques techniques avec méthode et pédagogie.</p>
+                    <br>
+                    <p>À travers ce portfolio, je vous invite à découvrir mon parcours, mes compétences ainsi que les
+                        différents projets sur lesquels j'ai eu l'opportunité de travailler.</p>
+                    <br>
+                    <p>Vous pouvez également consulter mon CV ci-dessous.</p>
+                    <a href="assets/CV_Julien_Chatillon.pdf" target="_blank" class="btn-primary" download><i
+                            class="fa-solid fa-download"></i> Télécharger mon CV</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- BTS SIO -->
+        <section id="bts" class="section">
+            <h2 class="section-title reveal">Qu'est-ce que le BTS SIO ?</h2>
+            <p class="section-intro reveal" style="margin-bottom: 2rem;">Le Brevet de Technicien Supérieur aux Services
+                Informatiques aux Organisations (BTS SIO) est une formation diplômante en deux ans. <br><br>Elle prépare
+                les étudiants aux métiers de l'administration réseau ou du développement logiciel. <br><br>Dès le
+                deuxième semestre, la formation se divise en deux spécialités distinctes pour répondre aux besoins
+                précis des entreprises du secteur de l'informatique.</p>
+
+            <div class="bts-grid">
+                <!-- SISR Card -->
+                <div class="card reveal glow-effect">
+                    <div class="glow-border"></div>
+                    <div class="card-content">
+                        <div class="card-header-flex">
+                            <h3 class="gold-text"><i class="fa-solid fa-network-wired"></i> Option SISR</h3>
+                            <span class="badge-gold">➔ Ma spécialité</span>
+                        </div>
+                        <p>L'option Solutions d'Infrastructure, Systèmes et Réseaux (SISR) forme des professionnels
+                            capables d'installer, de configurer et de sécuriser les équipements informatiques d'une
+                            entreprise. <br><br>L'objectif est de garantir le bon fonctionnement et la sécurité du
+                            système d'information.</p>
+                        <ul class="clean-list">
+                            <li><i class="fa-solid fa-angle-right gold-text"></i> Administrateur systèmes et réseaux
+                            </li>
+                            <li><i class="fa-solid fa-angle-right gold-text"></i> Technicien de support et déploiement
+                            </li>
+                            <li><i class="fa-solid fa-angle-right gold-text"></i> Pilote d'exploitation</li>
+                            <li><i class="fa-solid fa-angle-right gold-text"></i> Technicien d'infrastructure</li>
+                            <li><i class="fa-solid fa-angle-right gold-text"></i> Technicien de production</li>
+                            <li><i class="fa-solid fa-angle-right gold-text"></i> Technicien réseaux</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SLAM Card -->
+                <div class="card reveal glow-effect">
+                    <div class="glow-border"></div>
+                    <div class="card-content">
+                        <h3 class="gold-text"><i class="fa-solid fa-code"></i> Option SLAM</h3>
+                        <p>L'option Solutions Logicielles et Applications Métiers (SLAM) est axée sur la conception et
+                            le développement. <br><br>Elle forme des spécialistes capables de concevoir des logiciels,
+                            des sites web ou des applications mobiles en répondant à un cahier des charges précis.</p>
+                        <ul class="clean-list">
+                            <li><i class="fa-solid fa-angle-right gold-text"></i> Développeur web / mobile</li>
+                            <li><i class="fa-solid fa-angle-right gold-text"></i> Développeur d'applications</li>
+                            <li><i class="fa-solid fa-angle-right gold-text"></i> Analyste programmeur</li>
+                            <li><i class="fa-solid fa-angle-right gold-text"></i> Analyste d’applications ou d’études
+                            </li>
+                            <li><i class="fa-solid fa-angle-right gold-text"></i> Concepteur d'applications</li>
+                            <li><i class="fa-solid fa-angle-right gold-text"></i> Technicien d’études informatiques</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section id="certifications" class="section">
+            <h2 class="section-title reveal">Mes Certifications</h2>
+            <div class="cert-grid">
+                <!-- Carte 1 -->
+                <a href="assets/CISCO_Networking-Devices.pdf" target="_blank" class="cert-card reveal glow-effect">
+                    <div class="cert-card-content flex-col-center">
+                        <img src="assets/CISCO_Networking-Devices_ICON.png" alt="Networking Devices" class="cert-img">
+                        <h3>Networking Devices</h3>
+                        <p>Cisco</p>
+                    </div>
+                </a>
+
+                <!-- Carte 2 -->
+                <a href="assets/CISCO_Introduction-to-Cybersecurity.pdf" target="_blank"
+                    class="cert-card reveal glow-effect">
+                    <div class="cert-card-content flex-col-center">
+                        <img src="assets/CISCO_Introduction-to-Cybersecurity_ICON.png"
+                            alt="Introduction to Cybersecurity" class="cert-img">
+                        <h3>Introduction to Cybersecurity</h3>
+                        <p>Cisco</p>
+                    </div>
+                </a>
+
+                <!-- Carte 3 -->
+                <a href="assets/CISCO_Introduction-to-modern-AI.pdf" target="_blank"
+                    class="cert-card reveal glow-effect">
+                    <div class="cert-card-content flex-col-center">
+                        <img src="assets/CISCO_Introduction-to-Modern_IA_ICON.png" alt="Introduction to modern AI"
+                            class="cert-img">
+                        <h3>Introduction to modern AI</h3>
+                        <p>Cisco</p>
+                    </div>
+                </a>
+
+                <!-- Carte 4 -->
+                <a href="assets/ATELIER_RGPD_CNIL.pdf" target="_blank" class="cert-card reveal glow-effect">
+                    <div class="cert-card-content flex-col-center">
+                        <img src="assets/ATELIER_RGPD_CNIL_ICON.png" alt="Atelier RGPD" class="cert-img">
+                        <h3>Atelier RGPD</h3>
+                        <p>CNIL</p>
+                    </div>
+                </a>
+
+                <!-- Carte 5 -->
+                <a href="#" class="cert-card reveal glow-effect">
+                    <div class="cert-card-content flex-col-center">
+                        <i class="fa-solid fa-graduation-cap cert-icon-placeholder"></i>
+                        <h3>Certification à venir</h3>
+                        <p>En préparation...</p>
+                    </div>
+                </a>
+
+                <!-- Carte 6 -->
+                <a href="#" class="cert-card reveal glow-effect">
+                    <div class="cert-card-content flex-col-center">
+                        <i class="fa-solid fa-graduation-cap cert-icon-placeholder"></i>
+                        <h3>Certification à venir</h3>
+                        <p>En préparation...</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Réalisations -->
+        <section id="projets" class="section">
+            <h2 class="section-title reveal">Mes Réalisations</h2>
+
+            <!-- Carrousel -->
+            <div class="carousel-container reveal">
+                <button class="carousel-btn prev" aria-label="Précédent"><i
+                        class="fa-solid fa-chevron-left"></i></button>
+                <div class="carousel-track-container">
+                    <ul class="carousel-track">
+                        <li class="carousel-slide">
+                            <a href="projet1-modele.html" class="card glow-effect project-card">
+                                <div class="card-content">
+                                    <h3 class="gold-text">Réalisation 1 : Création d'un labo d'expérimentation</h3>
+                                    <p>Conception et déploiement d'une infrastructure virtualisée sous Proxmox VE,
+                                        incluant la segmentation réseau et la sécurisation des flux via pfSense.</p>
+                                    <span class="read-more">Voir la réalisation <i
+                                            class="fa-solid fa-arrow-right"></i></span>
+                                </div>
+                                <img src="assets/projet1.png" alt="Aperçu projet" class="corner-reveal">
+                            </a>
+                        </li>
+                        <li class="carousel-slide">
+                            <a href="projet2-modele.html" class="card glow-effect project-card">
+                                <div class="card-content">
+                                    <h3 class="gold-text">Réalisation 2 : Déploiement d'une solution de Helpdesk (GLPI)
+                                    </h3>
+                                    <p>Déploiement d'une solution centralisée ITSM pour automatiser l'inventaire des
+                                        ressources réseau et structurer le traitement des tickets d'assistance aux
+                                        utilisateurs.</p>
+                                    <span class="read-more">Voir la réalisation <i
+                                            class="fa-solid fa-arrow-right"></i></span>
+                                </div>
+                                <img src="assets/projet2.png" alt="Aperçu projet" class="corner-reveal">
+                            </a>
+                        </li>
+                        <li class="carousel-slide">
+                            <a href="projet3-modele.html" class="card glow-effect project-card">
+                                <div class="card-content">
+                                    <h3 class="gold-text">Réalisation 3 : Création et hébergement du portfolio</h3>
+                                    <p>Mise en production sécurisée d'un site web via la création d'une zone
+                                        démilitarisée (DMZ) et la configuration d'un Reverse Proxy.</p>
+                                    <span class="read-more">Voir la réalisation <i
+                                            class="fa-solid fa-arrow-right"></i></span>
+                                </div>
+                                <img src="assets/projet3.png" alt="Aperçu projet" class="corner-reveal">
+                            </a>
+                        </li>
+                        <li class="carousel-slide">
+                            <a href="projet4-modele.html" class="card glow-effect project-card">
+                                <div class="card-content">
+                                    <h3 class="gold-text">Réalisation 4 : Mise en place d'une solution de supervision
+                                    </h3>
+                                    <p>Intégration d'une stack de monitoring pour surveiller l'état de santé de
+                                        l'infrastructure en temps réel et anticiper les pannes de services.</p>
+                                    <span class="read-more">Voir la réalisation <i
+                                            class="fa-solid fa-arrow-right"></i></span>
+                                </div>
+                                <img src="assets/projet4.png" alt="Aperçu projet" class="corner-reveal">
+                            </a>
+                        </li>
+                        <li class="carousel-slide">
+                            <a href="projet5-modele.html" class="card glow-effect project-card">
+                                <div class="card-content">
+                                    <h3 class="gold-text">Réalisation 5 : A Definir</h3>
+                                    <p>A Definir.</p>
+                                    <span class="read-more">Voir la réalisation <i
+                                            class="fa-solid fa-arrow-right"></i></span>
+                                </div>
+                                <img src="assets/projet1.jpg" alt="Aperçu projet" class="corner-reveal">
+                            </a>
+                        </li>
+                        <li class="carousel-slide">
+                            <a href="projet6-modele.html" class="card glow-effect project-card">
+                                <div class="card-content">
+                                    <h3 class="gold-text">Réalisation 6 : A Definir</h3>
+                                    <p>A Definir.</p>
+                                    <span class="read-more">Voir la réalisation <i
+                                            class="fa-solid fa-arrow-right"></i></span>
+                                </div>
+                                <img src="assets/projet1.jpg" alt="Aperçu projet" class="corner-reveal">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="carousel-btn next" aria-label="Suivant"><i
+                        class="fa-solid fa-chevron-right"></i></button>
+            </div>
+
+            <!-- Tableau des compétences -->
+            <div class="skills-table-container reveal">
+                <div class="table-header-flex">
+                    <h3 class="table-title">Suivi des Compétences SISR</h3>
+                    <a href="assets/Epreuve_E5_Tableau_de_synthese.pdf" target="_blank" class="pdf-btn"
+                        aria-label="Ouvrir le tableau de synthèse PDF" title="Ouvrir le tableau de synthèse">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </a>
+                </div>
+                <div class="table-wrapper card glow-effect">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Compétences (B1 - B2 - B3)</th>
+                                <th>Gérer le <br> patrimoine <br> informatique</th>
+                                <th>Répondre <br> aux incidents <br> / demandes</th>
+                                <th>Développer <br> la présence <br> en ligne</th>
+                                <th>Sécuriser <br> l'infrastructure <br> et les données</th>
+                                <th>Collaborer <br> à la gestion <br> d'un projet</th>
+                                <th>Mettre à <br> disposition <br> des services</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Réalisation 1 : Création d'un labo d'expérimentation</td>
+                                <td class="checked"><i class="fa-solid fa-check"></i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="checked"><i class="fa-solid fa-check"></i></td>
+                                <td class="checked"><i class="fa-solid fa-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Réalisation 2 : Déploiement d'une solution de Helpdesk (GLPI)</td>
+                                <td class="checked"><i class="fa-solid fa-check"></i></td>
+                                <td class="checked"><i class="fa-solid fa-check"></i></td>
+                                <td></td>
+                                <td></td>
+                                <td class="checked"><i class="fa-solid fa-check"></i></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Réalisation 3 : Création et hébergement du portfolio</td>
+                                <td class="checked"><i class="fa-solid fa-check"></i></td>
+                                <td></td>
+                                <td class="checked"><i class="fa-solid fa-check"></i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Réalisation 4 : Mise en place d'une solution de supervision
+                                </td>
+                                <td class="checked"><i class="fa-solid fa-check"></i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="checked"><i class="fa-solid fa-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Réalisation 5 : A définir</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Réalisation 6 : A definir</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Veille Informatique -->
+        <section id="veille" class="section">
+            <h2 class="section-title reveal"><i class="fa-solid fa-satellite-dish"></i> Veille Informatique</h2>
+
+            <div class="reveal" style="max-width: 800px; margin: 0 auto 40px auto; text-align: left;">
+                <h3 class="gold-text">Qu'est-ce que la veille technologique ?</h3>
+                <p>La veille technologique, élément de la veille stratégique, consiste à surveiller les évolutions
+                    techniques et les innovations dans un secteur d'activité donné. Elle comprend notamment la
+                    surveillance, la collecte, le partage et la diffusion d'informations permettant d'anticiper ou de
+                    s'informer sur des changements en matière de recherche, développement, lancement de nouveaux
+                    produits, etc. Cela a pour but d'évaluer l'impact sur l'environnement et l'organisation.</p>
+            </div>
+
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="card reveal glow-effect">
+                    <div class="glow-border"></div>
+                    <div class="card-content">
+                        <h3 class="gold-text">L'utilisation de l'IA dans l'apprentissage</h3>
+                        <p style="font-style: italic; font-size: 0.9rem; margin-bottom: 1.5rem; opacity: 0.8;">
+                            Source principale : Analyse basée sur les travaux de Micode (2026).
+                            <a href="https://www.youtube.com/watch?v=4xq6bVbS-Pw" target="_blank" class="gold-text"
+                                style="text-decoration: underline;">Voir la vidéo <i
+                                    class="fa-solid fa-external-link-alt" style="font-size: 0.8rem;"></i></a>
+                        </p>
+
+                        <p>L'Intelligence Artificielle générative bouleverse notre façon de travailler et d'apprendre.
+                            Si l'adoption de ces outils est inévitable pour rester compétitif en entreprise, leur
+                            utilisation aveugle soulève un risque majeur : le <strong>délestage cognitif</strong>.</p>
+                        <br>
+
+                        <p>L'apprentissage humain repose sur trois piliers : la <strong>théorie</strong> (l'encodage par
+                            le cerveau), la <strong>pratique</strong> (la création d'automatismes) et la
+                            <strong>métacognition</strong> (la compréhension de ses erreurs). Des études neurologiques
+                            récentes (MIT, 2025) ont démontré que sous-traiter systématiquement la résolution d'un
+                            problème à une IA sans effort de compréhension entraîne une baisse significative de
+                            l'activité cérébrale.
+                        </p>
+                        <br>
+
+                        <p>Dans l'informatique, on observe déjà ce clivage. Les professionnels expérimentés utilisent
+                            l'IA comme un assistant de production pour gagner du temps sur des tâches qu'ils maîtrisent
+                            et savent corriger. À l'inverse, l'utilisation de l'IA par des profils juniors sans maîtrise
+                            des fondamentaux mène à la production d'infrastructures ou de codes illisibles qu'ils sont
+                            incapables de dépanner.</p>
+                        <br>
+
+                        <p>La solution n'est pas d'interdire l'outil, mais de transformer notre usage : faire passer
+                            l'IA du statut de 'donneur de réponses' à celui de <strong>'tuteur interactif'</strong>. En
+                            apprenant à formuler des requêtes (prompts) qui forcent l'IA à nous guider pas à pas sans
+                            nous donner la solution immédiate, l'IA devient un accélérateur d'apprentissage redoutable.
+                        </p>
+
+                        <hr style="border: 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin: 2rem 0;">
+
+                        <h4 class="gold-text">Études et Sources Complémentaires :</h4>
+                        <ul class="clean-list veille-sources-list">
+                            <li><i class="fa-solid fa-angle-right gold-text"></i>
+                                <div><strong>Étude du MIT (2025) :</strong> Your Brain on ChatGPT: Accumulation of
+                                    Cognitive Debt. Une étude démontrant la baisse d'activité cérébrale lors de la
+                                    sous-traitance de tâches à l'IA. (<a
+                                        href="https://www.media.mit.edu/publications/your-brain-on-chatgpt/"
+                                        target="_blank">Lien vers l'étude</a>)</div>
+                            </li>
+                            <li><i class="fa-solid fa-angle-right gold-text"></i>
+                                <div><strong>Étude d'Harvard (2024) :</strong> AI Tutoring Outperforms Active Learning.
+                                    Recherche sur le tuteur interactif "PS2 Pal" qui prouve l'efficacité de l'IA
+                                    utilisée comme précepteur. (<a
+                                        href="https://hechingerreport.org/proof-points-ai-tutor-harvard-physics/"
+                                        target="_blank">Lien vers l'article</a>)</div>
+                            </li>
+                            <li><i class="fa-solid fa-angle-right gold-text"></i>
+                                <div><strong>Étude MDPI (2025) :</strong> Impacts on Cognitive Offloading and the Future
+                                    of Critical Thinking. Confirme l'impact négatif de la dépendance à l'IA sur l'esprit
+                                    critique. (<a href="https://www.mdpi.com/2075-4698/15/1/6" target="_blank">Lien vers
+                                        la publication</a>)</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Footer -->
+        <section id="contact" class="contact-section">
+            <h2 class="section-title reveal">Contact</h2>
+            <div class="contact-container reveal">
+
+                <div class="contact-form card glow-effect">
+                    <div class="card-content">
+                        <h3 class="contact-title">Me Contacter</h3>
+
+                        <form action="mailto:chatillon35310@gmail.com" method="post" enctype="text/plain">
+
+                            <div class="form-group row">
+                                <div class="col">
+                                    <label for="nom" class="form-label">Nom</label>
+                                    <input type="text" id="nom" name="Nom" class="form-input" required>
+                                </div>
+                                <div class="col">
+                                    <label for="email" class="form-label">E-mail</label>
+                                    <input type="email" id="email" name="Email" class="form-input" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="objet" class="form-label">Objet</label>
+                                <input type="text" id="objet" name="Objet" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea id="message" name="Message" class="form-textarea" rows="6"
+                                    required></textarea>
+                            </div>
+
+                            <div style="text-align: center;">
+                                <button type="submit" class="contact-button">Envoyer un message</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-copyright reveal" style="text-align: center;">
+                <p>&copy; <span id="year"></span> Julien Chatillon - Étudiant BTS SIO SISR.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button id="btn-back-to-top" aria-label="Retour en haut">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

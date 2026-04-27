@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de Julien Chatillon | BTS SIO option SISR</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a3020'/><text x='50' y='68' font-family='sans-serif' font-size='50' font-weight='bold' fill='%23eab308' text-anchor='middle'>JC</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <main class="main-content" style="margin-left: 0; width: 100%;">
+        <section class="section" style="min-height: calc(100vh - 80px);">
+            <div class="page-header reveal"
+                style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 2rem;">
+                <a href="index.html#projets" class="btn-back" style="margin-bottom: 30px;"><i
+                        class="fa-solid fa-arrow-left"></i> Retour au
+                    portfolio</a>
+                <h1 class="section-title" style="margin-bottom: 0;">Réalisation 3 : Création et hébergement du
+                    portfolio</h1>
+            </div>
+
+            <div class="card reveal glow-effect project-detail-grid">
+                <div class="project-content">
+                    <h2 class="gold-text">Contexte</h2>
+                    <p>Afin de mettre en valeur mes compétences et mes réalisations pour mon BTS SIO, j'ai entrepris la
+                        création complète de mon portfolio web. N'ayant aucune compétence initiale en développement, je
+                        me suis appuyé sur l'environnement Antigravity pour concevoir le design et générer le code de
+                        l'interface. Une fois le site créé, au lieu d'utiliser un hébergement cloud standard, j'ai
+                        décidé de l'auto-héberger sur ma propre infrastructure Proxmox. Cette démarche globale m'a
+                        permis de maîtriser le projet de bout en bout : de la conception visuelle jusqu'au routage
+                        sécurisé des flux internet vers mon réseau local.</p>
+
+                    <h2 class="gold-text" style="margin-top: 2rem;">Objectifs</h2>
+                    <ul>
+                        <li>Concevoir l'interface visuelle et développer le site web de zéro en s'appuyant sur l'outil
+                            Antigravity.
+                        </li>
+                        <li>Auto-héberger le serveur web du portfolio (conteneur Nginx) sur l'infrastructure locale.
+                        </li>
+                        <li>Créer une zone démilitarisée (DMZ) étanche sur le pare-feu pfSense pour isoler les services
+                            publics du réseau interne (LAN).</li>
+                        <li>Déployer un Reverse Proxy (Nginx Proxy Manager) pour centraliser et rediriger le trafic
+                            HTTP/HTTPS entrant.</li>
+                        <li>Gérer un nom de domaine public (julien-chatillon.com) et sécuriser les échanges grâce à la
+                            mise en place de certificats SSL/TLS.</li>
+                    </ul>
+
+                    <h2 class="gold-text" style="margin-top: 2rem;">Technologies utilisées</h2>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;">
+                        <span
+                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">Antigravity</span>
+                        <span
+                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">Conteneur
+                            (Docker)</span>
+                        <span
+                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">Nginx
+                            Proxy Manager</span>
+                        <span
+                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">pfSense</span>
+                        <span
+                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">Gestion
+                            DNS</span>
+                        <span
+                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">Certificats
+                            SSL/TLS</span>
+                    </div>
+
+                    <h2 class="gold-text" style="margin-top: 2rem;">Compétences travaillées</h2>
+                    <h3>Gérer le patrimoine informatique</h3>
+                    <ul>
+                        <li>Vérifier les conditions de la continuité d'un service informatique</li>
+                    </ul>
+                    <h3>Développer la précense en ligne de l'organisation</h3>
+                    <ul>
+                        <li>Référencer les services en ligne de l'oganisation et mesurer leur visibilité</li>
+                        <li>Participer à l'évolution d'un site Web exploitant les données de l'organisation</li>
+                    </ul>
+
+                    <h2 class="gold-text" style="margin-top: 2rem;">Bilan</h2>
+                    <p>Ce projet s'est révélé être un double défi extrêmement formateur. D'une part, il m'a poussé à
+                        sortir de ma zone de confort en créant un site web complet de A à Z, malgré mon profil orienté
+                        infrastructure. D'autre part, il m'a permis de rendre ce service accessible depuis internet de
+                        manière totalement sécurisée. L'apprentissage majeur a résidé dans la configuration stricte de
+                        la DMZ sur pfSense : j'ai dû concevoir des règles de filtrage garantissant qu'en cas de
+                        compromission du serveur web, mon réseau interne (LAN) reste inaccessible. De plus, la mise en
+                        place du Reverse Proxy a grandement simplifié la gestion de mes certificats de sécurité et me
+                        donne la flexibilité d'exposer facilement de nouveaux services à l'avenir.</p>
+                </div>
+                <div class="project-visual">
+                    <img src="assets/projet3.png" alt="Illustration du projet">
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; <span id="year"></span> Julien. Créé pour le BTS SIO SISR.</p>
+        </footer>
+    </main>
+
+    <script>
+        // Spotlight Card Glow Effect for single page
+        const cards = document.querySelectorAll('.glow-effect');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .glow-effect::before {
+                background: radial-gradient(
+                    800px circle at var(--mouse-x) var(--mouse-y), 
+                    rgba(212, 175, 55, 0.4), 
+                    transparent 40%
+                );
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Animation reveal on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(reveal => {
+                setTimeout(() => {
+                    reveal.classList.add('active');
+                }, 100);
+            });
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+
+</html>

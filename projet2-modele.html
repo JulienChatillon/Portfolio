@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de Julien Chatillon | BTS SIO option SISR</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a3020'/><text x='50' y='68' font-family='sans-serif' font-size='50' font-weight='bold' fill='%23eab308' text-anchor='middle'>JC</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <main class="main-content" style="margin-left: 0; width: 100%;">
+        <section class="section" style="min-height: calc(100vh - 80px);">
+            <div class="page-header reveal"
+                style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 2rem;">
+                <a href="index.html#projets" class="btn-back" style="margin-bottom: 30px;"><i
+                        class="fa-solid fa-arrow-left"></i> Retour au
+                    portfolio</a>
+                <h1 class="section-title" style="margin-bottom: 0;">Réalisation 2 : Déploiement d'une solution de
+                    gestion de parc et de Helpdesk (GLPI)</h1>
+            </div>
+
+            <div class="card reveal glow-effect project-detail-grid">
+                <div class="project-content">
+                    <h2 class="gold-text">Contexte</h2>
+                    <p>Ce projet a été réalisé de manière autonome dans le cadre de la création de mon laboratoire
+                        d'infrastructure (Homelab). Afin de pallier le manque de missions techniques complexes en
+                        entreprise et de valider mes compétences de technicien système et réseau, j'ai simulé les
+                        besoins d'une PME. L'objectif était de mettre en place un outil professionnel capable de
+                        recenser l'ensemble du matériel virtuel et physique de mon réseau, tout en offrant un portail de
+                        support aux futurs utilisateurs de l'infrastructure. Le serveur GLPI a été déployé sur une
+                        machine virtuelle Linux hébergée sur un cluster Proxmox.</p>
+
+                    <h2 class="gold-text" style="margin-top: 2rem;">Objectifs</h2>
+                    <ul>
+                        <li>Centraliser l'inventaire du parc informatique (serveurs, machines virtuelles, équipements
+                            réseau).</li>
+                        <li>Mettre en place un centre de services (Helpdesk) pour collecter, suivre et traiter les
+                            incidents.</li>
+                        <li>Gérer les niveaux d'habilitation (profils Super-Admin, Technicien, Utilisateur standard).
+                        </li>
+                        <li>Maintenir une base de connaissances pour documenter les résolutions d'incidents.</li>
+                    </ul>
+
+                    <h2 class="gold-text" style="margin-top: 2rem;">Technologies utilisées</h2>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;">
+                        <span
+                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">Windows
+                            Server</span>
+                        <span
+                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">GLPI</span>
+                        <span
+                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">Linux
+                            (debian)</span>
+                        <span
+                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">MariaDB/MySQL</span>
+                        <span
+                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">LDAP</span>
+                    </div>
+
+                    <h2 class="gold-text" style="margin-top: 2rem;">Compétences travaillées</h2>
+                    <h3>Gérer le patrimoine informatique</h3>
+                    <ul>
+                        <li>Recenser et identifier les ressources numériques</li>
+                        <li>Exploiter des référentiels, normes et standards</li>
+                        <li>Mettre en place et vérifier les niveau d'habilitation associés à un service</li>
+                        <li>Vérifier le respect des règles d'utilisation des ressources</li>
+                    </ul>
+                    <h3>Répondre aux incidents et demandes d'assistance</h3>
+                    <ul>
+                        <li>Collecter, suivre et orienter des demandes</li>
+                        <li>Traiter des demandes concernant les services réseaux et systèmes applicatifs</li>
+                        <li>Traiter des demandes concernant les applications</li>
+                    </ul>
+                    <h3>Mettre à disposition des utilisateurs un service informatique</h3>
+                    <ul>
+                        <li>Déployer un service</li>
+                        <li>Accompagner les utilisateurs dans la mise en place d'un service</li>
+                    </ul>
+
+                    <h2 class="gold-text" style="margin-top: 2rem;">Bilan</h2>
+                    <p>Ce projet m'a permis d'acquérir une solide expérience pratique sur la gestion des services
+                        informatiques (ITSM), une compétence fondamentale en entreprise. J'ai appris à préparer un
+                        environnement serveur (installation d'une pile web LAMP/LEMP), à sécuriser l'accès à
+                        l'application via des règles de pare-feu pfSense, et à structurer un flux de travail pour le
+                        support utilisateur. La principale difficulté a été d'assurer le bon routage réseau pour que la
+                        machine GLPI puisse communiquer avec l'ensemble des différents sous-réseaux (VLANs) de mon
+                        infrastructure.</p>
+                </div>
+                <div class="project-visual">
+                    <img src="assets/projet2.png" alt="Illustration du projet">
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; <span id="year"></span> Julien. Créé pour le BTS SIO SISR.</p>
+        </footer>
+    </main>
+
+    <script>
+        // Spotlight Card Glow Effect for single page
+        const cards = document.querySelectorAll('.glow-effect');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .glow-effect::before {
+                background: radial-gradient(
+                    800px circle at var(--mouse-x) var(--mouse-y), 
+                    rgba(212, 175, 55, 0.4), 
+                    transparent 40%
+                );
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Animation reveal on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(reveal => {
+                setTimeout(() => {
+                    reveal.classList.add('active');
+                }, 100);
+            });
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+
+</html>
