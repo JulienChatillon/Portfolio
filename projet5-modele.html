@@ -20,68 +20,74 @@
                 <a href="index.html#projets" class="btn-back" style="margin-bottom: 30px;"><i
                         class="fa-solid fa-arrow-left"></i> Retour au
                     portfolio</a>
-                <h1 class="section-title" style="margin-bottom: 0;">Réalisation 4 : Mise en place d'une solution de
-                    supervision</h1>
+                <h1 class="section-title" style="margin-bottom: 0;">Réalisation 5 : Documentation de l'infrastructure
+                    personnelle</h1>
             </div>
 
             <div class="card reveal glow-effect project-detail-grid">
                 <div class="project-content">
                     <h2 class="gold-text">Contexte</h2>
-                    <p>Avec l'ajout progressif de nouvelles machines virtuelles et de divers services sur mon
-                        infrastructure, il devenait complexe d'avoir une vision globale de la consommation des
-                        ressources matérielles et réseau. Pour éviter de naviguer à l'aveugle et assurer la stabilité de
-                        l'ensemble, j'ai donc déployé une pile de supervision complète et centralisée, capable de
-                        récolter les métriques de mes serveurs et de mes machines virtuelles pour les restituer sous
-                        forme de tableaux de bord lisibles en temps réel.</p>
+                    <p>Avec l'évolution constante de mon laboratoire (PVE2) et de mon environnement de production
+                        (PVE1), la quantité de services déployés a rapidement augmenté : routage pfSense, annuaire
+                        Active Directory, tunnels WireGuard, supervision, etc. Il devenait indispensable de structurer
+                        mes prises de notes initialement réalisées sur Notion. Ce projet est né de la volonté de créer
+                        une véritable base de connaissances centralisée, capable de tracer l'architecture de mon réseau
+                        et de détailler mes procédures de déploiement. Pour partager ce travail sans compromettre la
+                        sécurité de mon infrastructure, j'ai mis au point un système de publication qui filtre les
+                        données sensibles d'un dépôt privé vers un dépôt GitHub public.</p>
 
                     <h2 class="gold-text" style="margin-top: 2rem;">Objectifs</h2>
                     <ul>
-                        <li>Déployer une base de données temporelle (InfluxDB) optimisée pour le stockage des métriques
-                            d'infrastructure.</li>
-                        <li>Installer et paramétrer un outil de visualisation (Grafana) pour créer des tableaux de bord
-                            interactifs.</li>
-                        <li>Interconnecter l'hyperviseur Proxmox à la base de données pour faire remonter les
-                            statistiques matérielles (consommation CPU, RAM, espace disque, trafic réseau).</li>
-                        <li>Assurer un suivi continu de la santé des services critiques pour anticiper les éventuelles
-                            surcharges ou anomalies.</li>
+                        <li>Centraliser et pérenniser la documentation technique de l'ensemble de l'infrastructure
+                            (topologies réseaux, stratégies de sauvegarde, PRA).</li>
+                        <li>Mettre en place un flux de publication sécurisé (dépôt privé vers dépôt public) garantissant
+                            l'anonymisation des adresses IP critiques et des informations sensibles.</li>
+                        <li>Rédiger des procédures d'exploitation et de configuration détaillées et reproductibles
+                            (création de cluster, certificats PKI, règles de pare-feu).</li>
+                        <li>Partager mon environnement d'apprentissage et mes maquettes avec d'autres étudiants ou
+                            professionnels via une plateforme accessible (GitHub).</li>
                     </ul>
 
                     <h2 class="gold-text" style="margin-top: 2rem;">Technologies utilisées</h2>
                     <div style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;">
                         <span
-                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">Grafana</span>
+                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">GitHub</span>
                         <span
-                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">InfluxDB</span>
+                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">Markdown</span>
                         <span
-                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">Proxmox
-                            VE</span>
+                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">Notion</span>
                         <span
-                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">Linux
-                            (debian)</span>
+                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">Scripting</span>
                     </div>
 
                     <h2 class="gold-text" style="margin-top: 2rem;">Compétences travaillées</h2>
                     <h3>Gérer le patrimoine informatique</h3>
                     <ul>
                         <li>Recenser et identifier les ressources numériques</li>
-                        <li>Vérifier les conditions de la continuité d'un service informatique</li>
+                        <li>Exploiter des référentiels, normes et standards adoptés par le prestataire informatique</li>
+                    </ul>
+                    <h3>Mettre à disposition des utilisateurs un service informatique</h3>
+                    <ul>
+                        <li>Accompagner les utilisateurs dans la mise en place d'un service</li>
                     </ul>
                     <h3>Organiser son développement professionnel</h3>
                     <ul>
-                        <li>Mettre en oeuvre des outils et stratégies de veille informationnelles</li>
+                        <li>Gérer son identité professionnelle</li>
+                        <li>Mettre en place son environnement d'apprentissage personnel</li>
+                        <li>Développer son projet professionnel</li>
                     </ul>
 
                     <h2 class="gold-text" style="margin-top: 2rem;">Bilan</h2>
-                    <p>Ce projet m'a permis de comprendre les enjeux cruciaux de la supervision en entreprise. J'ai
-                        appris à manipuler des bases de données orientées séries temporelles et à transformer des
-                        données brutes en indicateurs visuels clairs d'aide à la décision. Le principal défi a été de
-                        configurer correctement les agents et les sources de données pour que Proxmox communique de
-                        manière sécurisée avec InfluxDB. Aujourd'hui, cette solution m'offre une visibilité totale sur
-                        mon réseau et me permet d'identifier les goulots d'étranglement et de me générer des alertes en
-                        cas de besoin.</p>
+                    <p>Ce projet de documentation m'a permis de franchir un cap dans ma rigueur technique. La nécessité
+                        d'expliquer clairement des concepts complexes (comme la liaison Site-to-Site ou la configuration
+                        d'un serveur de secours) m'a forcé à consolider mes propres acquis. Le défi technique de la
+                        sanitisation des données m'a également sensibilisé aux enjeux de la sécurité de l'information
+                        publique. Aujourd'hui, je dispose non seulement d'un support fiable pour reconstruire ou
+                        dépanner n'importe quel segment de mon laboratoire en toute autonomie, mais aussi d'une vitrine
+                        professionnelle démontrant ma méthode de travail.</p>
                 </div>
                 <div class="project-visual">
-                    <img src="assets/projet4.png" alt="Illustration du projet">
+                    <img src="assets/projet5.png" alt="Illustration du projet">
                 </div>
             </div>
         </section>

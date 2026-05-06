@@ -1,8 +1,8 @@
 :root {
     --bg-color: #111814;
-    --card-color: #2C3A32;
+    --card-color: #2A3A2E;
     --text-color: #E0E0E0;
-    --accent-color: #D4AF37;
+    --accent-color: #C4a15e;
     --sidebar-width: 300px;
     --border-radius: 16px;
     --transition-speed: 0.3s;
@@ -483,7 +483,7 @@ ul.clean-list li i {
 }
 
 .contact-title {
-    color: #eab308;
+    color: var(--accent-color);
     /* Couleur jaune/dorée pour les titres */
     margin-bottom: 25px;
     font-size: 1.5rem;
@@ -506,7 +506,7 @@ ul.clean-list li i {
 
 .form-label {
     display: block;
-    color: #eab308;
+    color: var(--accent-color);
     /* Couleur jaune/dorée pour les labels */
     margin-bottom: 5px;
 }
@@ -528,15 +528,15 @@ ul.clean-list li i {
 
 .form-input:focus,
 .form-textarea:focus {
-    outline: 2px solid #eab308;
+    outline: 2px solid var(--accent-color);
     /* Contour doré au focus */
 }
 
 .contact-button {
     background-color: transparent;
-    color: #eab308;
+    color: var(--accent-color);
     /* Texte doré */
-    border: 2px solid #eab308;
+    border: 2px solid var(--accent-color);
     /* Bordure dorée */
     padding: 12px 24px;
     border-radius: 5px;
@@ -549,7 +549,7 @@ ul.clean-list li i {
 }
 
 .contact-button:hover {
-    background-color: #eab308;
+    background-color: var(--accent-color);
     /* Fond doré au survol */
     color: #0d1a10;
     /* Texte vert sombre au survol */
