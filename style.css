@@ -515,8 +515,8 @@ ul.clean-list li i {
 .form-textarea {
     width: 100%;
     padding: 10px;
-    background-color: #0a140d;
-    /* Fond très sombre pour les inputs */
+    background-color: rgba(0, 0, 0, 0.2);
+    /* Même vert que le bandeau Compétences (assombri sur le fond de la carte) */
     color: #ffffff;
     /* Texte blanc dans les inputs */
     border: none;
@@ -834,7 +834,7 @@ tr:last-child td {
 /* Project Detail Grid Refactor */
 .project-detail-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
     align-items: stretch;
 }
 
@@ -847,16 +847,18 @@ tr:last-child td {
 
 .project-visual {
     height: 100%;
-    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
+    mask-image: linear-gradient(to right, transparent 0%, black 40%);
 }
 
 .project-visual img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: right center;
     display: block;
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
 }
 
 @media (max-width: 800px) {
