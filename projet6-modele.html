@@ -20,65 +20,59 @@
                 <a href="index.html#projets" class="btn-back" style="margin-bottom: 30px;"><i
                         class="fa-solid fa-arrow-left"></i> Retour au
                     portfolio</a>
-                <h1 class="section-title" style="margin-bottom: 0;">Réalisation 4 : Mise en place d'une solution de
-                    supervision</h1>
+                <h1 class="section-title" style="margin-bottom: 0;">Réalisation 6 : Réseau VPN Collaboratif Hub & Spoke
+                    (Interconnexion multi-sites)</h1>
             </div>
 
             <div class="card reveal glow-effect project-detail-grid">
                 <div class="project-content">
                     <h2 class="gold-text">Contexte</h2>
-                    <p>Face à l'évolution de mon infrastructure et à la mise en place d'architectures réseau distribuées
-                        (Hub & Spoke), ma solution de supervision initiale a montré ses limites.
-                        J'ai donc repensé cette architecture pour migrer vers un modèle moderne de type "Pull".
-                        L'objectif était de concevoir une véritable "Tour de Contrôle" centralisée et strictement isolée
-                        (DMZ_SUPERV), capable non seulement de surveiller les performances matérielles en temps réel,
-                        mais aussi de corréler ces données avec les journaux réseau et d'intégrer une couche de
-                        détection d'intrusion (IDS).</p>
+                    <p>Pour faciliter le travail collaboratif avec mes camarades tout en gardant le contrôle sur mon
+                        infrastructure, cette architecture vient remplacer un ancien tunnel de type Site-to-Site
+                        point-à-point. Le routeur frontal agit désormais comme un concentrateur central
+                        (Hub) permettant de relier de manière dynamique les infrastructures de plusieurs pairs (Spokes).
+                        L'enjeu majeur était de maintenir une approche "Zero Trust" afin de garantir un cloisonnement
+                        strict et sécurisé des flux entre les différents environnements.</p>
 
                     <h2 class="gold-text" style="margin-top: 2rem;">Objectifs</h2>
                     <ul>
-                        <li>Déployer et configurer une stack de supervision moderne (Prometheus) basée sur un modèle de
-                            collecte par "Traction" (Pull) au travers du pare-feu.</li>
-                        <li>Centraliser la collecte des métriques matérielles (Node Exporter) et l'ingestion des
-                            journaux réseau (Promtail/Loki) pour permettre une corrélation immédiate des événements sous
-                            Grafana.</li>
-                        <li>Sécuriser l'infrastructure de transit (VPN) en déployant un moteur de détection d'intrusion
-                            (Suricata) couplé à un mécanisme de "Kill Switch" réseau.</li>
-                        <li>Assurer une veille silencieuse et proactive via la configuration d'alertes ciblées
-                            (surchauffe, charge, anomalies réseau) notifiées instantanément sur un salon technique
-                            Discord.</li>
+                        <li>Déployer un réseau de transit VPN élargi, dimensionné pour accueillir
+                            jusqu'à 253 pairs.</li>
+                        <li>Configurer le Hub pour accepter des endpoints distants dynamiques, laissant les camarades
+                            initier la connexion vers le concentrateur.</li>
+                        <li>Gérer le routage des réseaux distants (via Allowed IPs) en imposant une règle d'architecture
+                            stricte : chaque pair doit déclarer des sous-réseaux uniques afin de prévenir tout conflit
+                            de routage.</li>
+                        <li>Sécuriser l'interface dédiée en bloquant formellement tout trafic vers le réseau de
+                            Production et la DMZ hébergeant les services exposés.</li>
+                        <li>Autoriser spécifiquement les communications inter-VPN et accorder un accès exclusif aux
+                            zones de test isolées du Labo (Serveurs et Clients).</li>
                     </ul>
 
                     <h2 class="gold-text" style="margin-top: 2rem;">Technologies utilisées</h2>
                     <div style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;">
                         <span
-                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">Grafana</span>
+                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">WireGuard</span>
                         <span
-                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">Prometheus</span>
+                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">pfSense</span>
                         <span
-                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">Loki</span>
+                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">Routing</span>
                         <span
-                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">Suricata</span>
-                        <span
-                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">Docker</span>
-                        <span
-                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">Linux
-                            (debian)</span>
+                            style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--accent-color); color: var(--accent-color);">Pare-feu</span>
                     </div>
 
 
 
                     <h2 class="gold-text" style="margin-top: 2rem;">Bilan</h2>
-                    <p>Cette refonte totale m'a permis de faire la transition entre du simple "monitoring" et de la
-                        véritable observabilité. J'ai appris à manipuler les langages de requêtage spécifiques comme
-                        PromQL et LogQL pour filtrer dynamiquement le trafic et croiser les données (ex: lier une hausse
-                        de charge CPU à un événement réseau). Ce projet souligne également l'importance du concept de
-                        "Security by Design" : la solution est totalement invisible depuis l'extérieur, accessible
-                        uniquement via tunnel chiffré, et capable de sectionner automatiquement les accès en cas
-                        d'intrusion avérée.</p>
+                    <p>La mise en place de cette topologie m'a permis de maîtriser les concepts de routage multi-sites
+                        et de gestion de plans d'adressage collaboratifs (coordination des sous-réseaux /16 pour éviter
+                        les chevauchements d'IP). Ce projet démontre ma capacité à ouvrir une infrastructure vers
+                        l'extérieur de manière sécurisée : la stricte hiérarchie des règles de pare-feu permet à mes
+                        camarades d'interagir librement dans les environnements de laboratoire partagés, sans jamais
+                        compromettre l'intégrité de ma zone de production.</p>
                 </div>
                 <div class="project-visual">
-                    <img src="assets/projet4.png" alt="Illustration du projet">
+                    <img src="assets/projet6.png" alt="Illustration du projet">
                 </div>
             </div>
 
@@ -88,17 +82,27 @@
                     <h3>Gérer le patrimoine informatique</h3>
                     <ul>
                         <li>Recenser et identifier les ressources numériques</li>
-                        <li>Vérifier les conditions de la continuité d'un service informatique</li>
+                        <li>Mettre en place et vérifier les niveaux d’habilitation associés à un service</li>
                     </ul>
-                    <h3>Répondre aux incidents et demandes d'assistance</h3>
+                    <h3>Développer la présence en ligne de l'organisation</h3>
                     <ul>
-                        <li>Collecter, suivre et orienter des demandes</li>
-                        <li>Traiter des demandes concernant les services réseaux et systèmes applicatifs</li>
-                        <li>Traiter des demandes concernant les applications</li>
+                        <li>Référencer les services en ligne de l'oganisation et mesurer leur visibilité</li>
+                    </ul>
+                    <h3>Travailler en mode projet</h3>
+                    <ul>
+                        <li>Analyser les objectifs et les modalités d'organisation d'un projet</li>
+                        <li>Planifier les activités</li>
+                    </ul>
+                    <h3>Mettre à disposition des utilisateurs un service informatique</h3>
+                    <ul>
+                        <li>Réaliser les tests d’intégration et d’acceptation d’un service</li>
+                        <li>Déployer un service</li>
+                        <li>Accompagner les utilisateurs dans la mise en place d'un service</li>
                     </ul>
                     <h3>Organiser son développement professionnel</h3>
                     <ul>
-                        <li>Mettre en oeuvre des outils et stratégies de veille informationnelles</li>
+                        <li>Gérer son identité professionnelle</li>
+                        <li>Mettre en place son environnement d'apprentissage personnel</li>
                         <li>Développer son projet professionnel</li>
                     </ul>
                 </div>

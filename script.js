@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const maxIndex = Math.max(0, track.children.length - visibleItems);
 
             if (currentIndex < maxIndex) {
-                currentIndex++;
+                currentIndex = Math.min(maxIndex, currentIndex + visibleItems);
             } else {
                 currentIndex = 0; // loop to start
             }
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const maxIndex = Math.max(0, track.children.length - visibleItems);
 
             if (currentIndex > 0) {
-                currentIndex--;
+                currentIndex = Math.max(0, currentIndex - visibleItems);
             } else {
                 currentIndex = maxIndex; // loop to end
             }
