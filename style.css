@@ -1,3 +1,14 @@
+/* Police Outfit hébergée localement (police variable, sous-ensemble latin) :
+   aucune requête vers Google Fonts, donc aucune IP de visiteur transmise à un tiers. */
+@font-face {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('assets/vendor/outfit/outfit-latin-wght-normal.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
     --bg-color: #111814;
     --card-color: #2A3A2E;
@@ -638,24 +649,65 @@ ul.clean-list li i {
     flex-direction: column;
 }
 
+/* Coin « plan d'architecte » : apparaît au survol d'une réalisation */
 .corner-reveal {
     position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 200px;
-    height: auto;
-    opacity: 0;
-    transform: translate(40px, 40px) rotate(10deg);
-    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    bottom: 10px;
+    right: 10px;
+    width: 84px;
+    height: 84px;
     pointer-events: none;
     z-index: 5;
-    clip-path: polygon(100% 100%, 0% 100%, 100% 0%);
-    filter: drop-shadow(-4px -4px 12px rgba(0, 0, 0, 0.6));
+    overflow: visible;
 }
 
-.project-card:hover .corner-reveal {
+.corner-reveal .cr-angle {
+    fill: none;
+    stroke: var(--accent-color);
+    stroke-width: 2;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.corner-reveal .cr-hatch {
+    fill: none;
+    stroke: var(--accent-color);
+    stroke-width: 1;
+    opacity: 0;
+    transition: opacity 0.5s ease 0.2s;
+}
+
+.corner-reveal text {
+    fill: var(--accent-color);
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.4s ease 0.35s;
+}
+
+.project-card:hover .corner-reveal .cr-angle,
+.project-card:focus-visible .corner-reveal .cr-angle {
+    stroke-dashoffset: 0;
+}
+
+.project-card:hover .corner-reveal .cr-hatch,
+.project-card:focus-visible .corner-reveal .cr-hatch {
+    opacity: 0.4;
+}
+
+.project-card:hover .corner-reveal text,
+.project-card:focus-visible .corner-reveal text {
     opacity: 1;
-    transform: translate(0, 0) rotate(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .corner-reveal .cr-angle,
+    .corner-reveal .cr-hatch,
+    .corner-reveal text {
+        transition: none;
+    }
 }
 
 .read-more {
@@ -919,5 +971,364 @@ tr:last-child td {
 
     .carousel-slide {
         flex: 0 0 100%;
+    }
+}
+
+/* Pages légales */
+.legal-card {
+    max-width: 900px;
+}
+
+.legal-card h2 {
+    color: var(--accent-color);
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+}
+
+.legal-card .card-content > p:first-child,
+.legal-card .card-content > h2:first-child {
+    margin-top: 0;
+}
+
+.legal-card p {
+    margin-bottom: 0.8rem;
+}
+
+.legal-card a {
+    color: var(--accent-color);
+}
+
+.legal-card .table-wrapper {
+    margin-top: 1rem;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.legal-card th,
+.legal-card td {
+    padding: 0.9rem 1rem;
+    vertical-align: top;
+}
+
+@media (max-width: 600px) {
+    .legal-card .card-content {
+        padding: 1.5rem;
+    }
+
+    .legal-card thead {
+        display: none;
+    }
+
+    .legal-card tr {
+        display: block;
+        padding: 0.8rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .legal-card tr:last-child {
+        border-bottom: none;
+    }
+
+    .legal-card td {
+        display: block;
+        border: none;
+        padding: 0.3rem 1rem;
+    }
+
+    .legal-card td::before {
+        content: attr(data-label);
+        display: block;
+        color: var(--accent-color);
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+    }
+}
+
+.legal-update {
+    color: #888;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}
+
+/* Liens du pied de page */
+.footer-links {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.footer-links a {
+    color: #aaa;
+    text-decoration: underline;
+    transition: color var(--transition-speed);
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+}
+
+.footer-links .sep {
+    margin: 0 0.6rem;
+}
+
+
+/* Section Contact compacte */
+.contact-section {
+    padding: 3rem 10% 2rem;
+}
+
+.contact-card {
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.contact-card .card-content {
+    padding: 2rem;
+}
+
+.contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.contact-actions .btn-primary {
+    margin-top: 0;
+}
+
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 3rem 5% 2rem;
+    }
+
+    /* le bouton flottant « retour en haut » ne doit pas recouvrir les liens du pied de page */
+    .footer-copyright,
+    .footer {
+        padding-bottom: 5rem;
+    }
+}
+
+/* ==========================================================================
+   Style « verre » : tuiles translucides à angles droits
+   Actif sur les pages qui portent <body class="glass">.
+   ========================================================================== */
+
+body.glass {
+    --border-radius: 0px;
+    --text-color: #ebf1ec;
+    --glass-bg: rgba(16, 30, 22, 0.46);
+    --glass-bg-hover: rgba(26, 48, 35, 0.62);
+    --glass-edge: rgba(255, 255, 255, 0.11);
+    --glass-blur: 14px;
+
+    /* Fond : un verre ne se voit que s'il y a quelque chose derrière.
+       Trois lueurs vertes/dorées, fixes pendant le défilement. */
+    background-color: #0b110d;
+    background-image:
+        radial-gradient(55vw 55vh at 88% 6%, rgba(56, 124, 80, 0.62), transparent 70%),
+        radial-gradient(50vw 55vh at 6% 62%, rgba(40, 98, 64, 0.58), transparent 70%),
+        radial-gradient(45vw 40vh at 72% 100%, rgba(196, 161, 94, 0.16), transparent 70%);
+    background-attachment: fixed;
+}
+
+/* ---------- Barre latérale ---------- */
+body.glass .sidebar {
+    background: rgba(7, 12, 9, 0.66);
+    -webkit-backdrop-filter: blur(18px) saturate(120%);
+    backdrop-filter: blur(18px) saturate(120%);
+    border-right: 1px solid var(--glass-edge);
+}
+
+body.glass .nav-link {
+    border-radius: 0;
+    border-left: 3px solid transparent;
+}
+
+body.glass .nav-link:hover,
+body.glass .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-left-color: var(--accent-color);
+}
+
+body.glass .social-links-sidebar a {
+    border-radius: 0;
+    border: 1px solid var(--glass-edge);
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+body.glass .social-links-sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.10);
+    border-color: rgba(196, 161, 94, 0.6);
+}
+
+/* ---------- Tuiles ---------- */
+body.glass .card,
+body.glass .cert-card {
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(135%);
+    backdrop-filter: blur(var(--glass-blur)) saturate(135%);
+    border: 1px solid var(--glass-edge);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    transition: opacity 0.8s ease-out,
+        transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1),
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        -webkit-backdrop-filter 0.3s ease,
+        backdrop-filter 0.3s ease;
+}
+
+/* le fond opaque des contenus masquait la transparence des tuiles */
+body.glass .card-content,
+body.glass .project-content {
+    background: transparent;
+}
+
+body.glass .contact-section {
+    background: transparent;
+}
+
+/* le carrousel coupe ce qui dépasse : on garde de la marge pour l'ombre et le léger relief */
+body.glass .carousel-track-container {
+    padding: 18px 0 34px;
+}
+
+/* ---------- Composants harmonisés (angles droits) ---------- */
+body.glass .btn-primary {
+    border-radius: 0;
+    border-width: 1px;
+    background-color: rgba(196, 161, 94, 0.08);
+}
+
+body.glass .btn-primary:hover {
+    background-color: var(--accent-color);
+    color: #0c130f;
+}
+
+body.glass .badge-gold {
+    border-radius: 0;
+}
+
+body.glass .carousel-btn {
+    border-radius: 0;
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-edge);
+}
+
+body.glass .carousel-btn:hover {
+    background: var(--accent-color);
+    color: #0c130f;
+}
+
+body.glass .pdf-btn {
+    border-radius: 0;
+    border: 1px solid var(--glass-edge);
+}
+
+body.glass #btn-back-to-top,
+body.glass .mobile-nav-toggle {
+    border-radius: 0;
+}
+
+body.glass th {
+    background-color: rgba(0, 0, 0, 0.30);
+}
+
+body.glass tbody tr:hover td {
+    background-color: rgba(255, 255, 255, 0.035);
+}
+
+/* ---------- Clavier : le focus se voit comme le survol ---------- */
+body.glass a.card:focus-visible,
+body.glass .cert-card:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+/* ==========================================================================
+   Survol
+   - tuile d'information (rien à cliquer) : elle se met simplement en avant
+   - tuile cliquable (Réalisations, Certifications, Contact) : le verre
+     s'épaissit, un reflet le traverse et un filet doré apparaît en bas
+   ========================================================================== */
+
+/* l'ancienne aura dorée disparaît */
+body.glass .glow-effect::before {
+    display: none;
+}
+
+/* Tuile d'information */
+body.glass .card:not(a):not(.contact-card):hover,
+body.glass .cert-card:not(a):hover {
+    background: var(--glass-bg-hover);
+    border-color: rgba(255, 255, 255, 0.20);
+    transform: translateY(-2px);
+}
+
+/* Tuile cliquable */
+body.glass a.card:hover,
+body.glass a.cert-card:hover,
+body.glass .contact-card:hover,
+body.glass a.card:focus-visible,
+body.glass a.cert-card:focus-visible {
+    --glass-blur: 22px;
+    background: var(--glass-bg-hover);
+    border-color: rgba(255, 255, 255, 0.24);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.40),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        inset 0 -3px 0 var(--accent-color);
+    transform: translateY(-4px);
+}
+
+body.glass a.card::after,
+body.glass a.cert-card::after,
+body.glass .contact-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 12;
+    pointer-events: none;
+    background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.09) 50%, transparent 65%);
+    transform: translateX(-110%);
+}
+
+body.glass a.card:hover::after,
+body.glass a.cert-card:hover::after,
+body.glass .contact-card:hover::after {
+    transform: translateX(110%);
+    transition: transform 0.9s ease;
+}
+
+/* ---------- Repli et accessibilité ---------- */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    body.glass {
+        --glass-bg: rgba(24, 40, 30, 0.92);
+        --glass-bg-hover: rgba(30, 50, 38, 0.96);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    body.glass .card,
+    body.glass .cert-card {
+        transition: none;
+    }
+
+    body.glass .card:hover,
+    body.glass .cert-card:hover {
+        transform: none;
+    }
+
+    body.glass .card::after,
+    body.glass .cert-card::after {
+        display: none;
     }
 }

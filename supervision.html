@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réalisation 4 : Mise en place d'une solution de supervision | Julien Chatillon</title>
+    <meta name="description" content="Réalisation 4 : supervision d&#x27;une infrastructure avec Prometheus, Loki, Grafana et Suricata, isolée dans une zone dédiée.">
+    <link rel="canonical" href="https://julien-chatillon.com/supervision.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Julien Chatillon">
+    <meta property="og:title" content="Réalisation 4 : Mise en place d'une solution de supervision | Julien Chatillon">
+    <meta property="og:description" content="Réalisation 4 : supervision d&#x27;une infrastructure avec Prometheus, Loki, Grafana et Suricata, isolée dans une zone dédiée.">
+    <meta property="og:url" content="https://julien-chatillon.com/supervision.html">
+    <meta property="og:image" content="https://julien-chatillon.com/assets/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a3020'/><text x='50' y='68' font-family='sans-serif' font-size='50' font-weight='bold' fill='%23eab308' text-anchor='middle'>JC</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="realisation.css">
+</head>
+
+<body class="glass">
+    <main class="main-content" style="margin-left: 0; width: 100%;">
+        <section class="section" style="min-height: calc(100vh - 80px);">
+            <div class="page-header reveal"
+                style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 2rem;">
+                <a href="index.html#projets" class="btn-back" style="margin-bottom: 30px;"><i
+                        class="fa-solid fa-arrow-left"></i> Retour au
+                    portfolio</a>
+                <h1 class="section-title" style="margin-bottom: 0;">Réalisation 4 : Mise en place d'une solution de
+                    supervision</h1>
+            </div>
+
+            <div class="card reveal glow-effect project-detail-grid">
+                <div class="project-content">
+                    <h2 class="gold-text">Contexte</h2>
+                    <p>Face à l'évolution de mon infrastructure et à la mise en place d'architectures réseau distribuées
+                        (Hub & Spoke), ma solution de supervision initiale a montré ses limites.
+                        J'ai donc repensé cette architecture pour migrer vers un modèle moderne de type "Pull".
+                        L'objectif était de concevoir une véritable "Tour de Contrôle" centralisée et strictement isolée
+                        (DMZ_SUPERV), capable non seulement de surveiller les performances matérielles en temps réel,
+                        mais aussi de corréler ces données avec les journaux réseau et d'intégrer une couche de
+                        détection d'intrusion (IDS).</p>
+
+                    <h2 class="gold-text" style="margin-top: 2rem;">Objectifs</h2>
+                    <ul>
+                        <li>Déployer et configurer une stack de supervision moderne (Prometheus) basée sur un modèle de
+                            collecte en mode « Pull » au travers du pare-feu.</li>
+                        <li>Centraliser la collecte des métriques matérielles (Node Exporter) et l'ingestion des
+                            journaux réseau (Promtail/Loki) pour permettre une corrélation immédiate des événements sous
+                            Grafana.</li>
+                        <li>Sécuriser l'infrastructure de transit (VPN) en déployant un moteur de détection d'intrusion
+                            (Suricata) couplé à un mécanisme de "Kill Switch" réseau.</li>
+                        <li>Assurer une veille silencieuse et proactive via la configuration d'alertes ciblées
+                            (surchauffe, charge, anomalies réseau) notifiées instantanément sur un salon technique
+                            Discord.</li>
+                    </ul>
+
+                    <h2 class="gold-text" style="margin-top: 2rem;">Technologies utilisées</h2>
+                    <div class="tag-list"><span class="tag">Grafana</span><span class="tag">Prometheus</span><span class="tag">Loki</span><span class="tag">Suricata</span><span class="tag">Docker</span><span class="tag">Linux (debian)</span></div>
+
+
+
+                    <h2 class="gold-text" style="margin-top: 2rem;">Bilan</h2>
+                    <p>Cette refonte totale m'a permis de faire la transition entre du simple "monitoring" et de la
+                        véritable observabilité. J'ai appris à manipuler les langages de requêtage spécifiques comme
+                        PromQL et LogQL pour filtrer dynamiquement le trafic et croiser les données (ex: lier une hausse
+                        de charge CPU à un événement réseau). Ce projet souligne également l'importance du concept de
+                        "Security by Design" : la solution est totalement invisible depuis l'extérieur, accessible
+                        uniquement via tunnel chiffré, et capable de sectionner automatiquement les accès en cas
+                        d'intrusion avérée.</p>
+                </div>
+                <div class="project-visual"><svg class="anim anim-v anim-ctx" viewBox="0 0 380 482" role="img" aria-label="Plan animé de la supervision : les machines envoient leurs métriques et leurs journaux à travers le pare-feu vers Prometheus et Loki, dans une zone isolée ; Grafana les corrèle et déclenche des alertes sur Discord ; Suricata surveille le VPN."><path class="nd dr" pathLength="1" style="--d:0s" d="M70,16 h240 v56 h-240 z"/><text class="tx fd" style="--d:0.6s" x="190" y="41" text-anchor="middle">Infrastructure</text><text class="tx2 fd" style="--d:0.7s" x="190" y="59" text-anchor="middle">Node Exporter, Promtail</text><path class="nd nd-gold dr" pathLength="1" style="--d:0.5s" d="M40,100 h140 v56 h-140 z"/><text class="tx fd" style="--d:1.1s" x="110" y="125" text-anchor="middle">Pare-feu</text><text class="tx2 fd" style="--d:1.2s" x="110" y="143" text-anchor="middle">collecte en pull</text><path class="nd dr" pathLength="1" style="--d:0.7s" d="M200,100 h140 v56 h-140 z"/><text class="tx fd" style="--d:1.2999999999999998s" x="270" y="125" text-anchor="middle">Suricata</text><text class="tx2 fd" style="--d:1.4s" x="270" y="143" text-anchor="middle">IDS et kill switch</text><path class="nd dr" pathLength="1" style="--d:1.2s" d="M40,184 h300 v196 h-300 z"/><path class="nd dr" pathLength="1" style="--d:1.8s" d="M56,212 h132 v56 h-132 z"/><text class="tx fd" style="--d:2.4s" x="122" y="237" text-anchor="middle">Prometheus</text><text class="tx2 fd" style="--d:2.5s" x="122" y="255" text-anchor="middle">métriques</text><path class="nd dr" pathLength="1" style="--d:2.0s" d="M192,212 h132 v56 h-132 z"/><text class="tx fd" style="--d:2.6s" x="258" y="237" text-anchor="middle">Loki</text><text class="tx2 fd" style="--d:2.7s" x="258" y="255" text-anchor="middle">journaux</text><path class="nd nd-gold dr" pathLength="1" style="--d:2.3s" d="M56,298 h268 v56 h-268 z"/><text class="tx fd" style="--d:2.9s" x="190" y="323" text-anchor="middle">Grafana</text><text class="tx2 fd" style="--d:3.0s" x="190" y="341" text-anchor="middle">tableaux de bord, corrélation</text><path class="nd dr" pathLength="1" style="--d:2.9s" d="M70,408 h240 v56 h-240 z"/><text class="tx fd" style="--d:3.5s" x="190" y="433" text-anchor="middle">Discord</text><text class="tx2 fd" style="--d:3.5999999999999996s" x="190" y="451" text-anchor="middle">alertes : chaleur, charge, intrusion</text><path id="p0" class="ln dr " pathLength="1" style="--d:0.9s" d="M110,72 V100"/><path id="p1" class="ln dr ln-dash" pathLength="1" style="--d:1.0s" d="M270,72 V100"/><path id="p2" class="ln dr " pathLength="1" style="--d:1.5s" d="M110,156 V212"/><path id="p3" class="ln dr " pathLength="1" style="--d:1.6s" d="M270,156 V212"/><path id="p4" class="ln dr " pathLength="1" style="--d:2.4s" d="M122,268 V298"/><path id="p5" class="ln dr " pathLength="1" style="--d:2.5s" d="M258,268 V298"/><path id="p6" class="ln dr " pathLength="1" style="--d:3.0s" d="M190,354 V408"/><path class="cot dr" pathLength="1" style="--d:2.6s" d="M360,184 V380"/><path class="cot fd" style="--d:2.8000000000000003s" d="M355,189 L365,179"/><path class="cot fd" style="--d:2.8000000000000003s" d="M355,385 L365,375"/><text class="tx2 fd" style="--d:3.0s" transform="translate(351,282.0) rotate(-90)" text-anchor="middle">zone isolée</text><circle class="pkt" r="3.5" opacity="0"><animateMotion dur="1.4s" begin="5.0s" repeatCount="indefinite"><mpath href="#p0"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.12;.88;1" dur="1.4s" begin="5.0s" repeatCount="indefinite"/></circle><circle class="pkt" r="3.5" opacity="0"><animateMotion dur="1.4s" begin="5.4s" repeatCount="indefinite"><mpath href="#p1"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.12;.88;1" dur="1.4s" begin="5.4s" repeatCount="indefinite"/></circle><circle class="pkt" r="3.5" opacity="0"><animateMotion dur="1.8s" begin="5.8s" repeatCount="indefinite"><mpath href="#p2"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.12;.88;1" dur="1.8s" begin="5.8s" repeatCount="indefinite"/></circle><circle class="pkt" r="3.5" opacity="0"><animateMotion dur="1.8s" begin="6.1s" repeatCount="indefinite"><mpath href="#p3"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.12;.88;1" dur="1.8s" begin="6.1s" repeatCount="indefinite"/></circle><circle class="pkt" r="3.5" opacity="0"><animateMotion dur="1.2s" begin="6.6s" repeatCount="indefinite"><mpath href="#p4"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.12;.88;1" dur="1.2s" begin="6.6s" repeatCount="indefinite"/></circle><circle class="pkt" r="3.5" opacity="0"><animateMotion dur="1.2s" begin="6.8s" repeatCount="indefinite"><mpath href="#p5"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.12;.88;1" dur="1.2s" begin="6.8s" repeatCount="indefinite"/></circle><circle class="pkt" r="3.5" opacity="0"><animateMotion dur="1.6s" begin="7.4s" repeatCount="indefinite"><mpath href="#p6"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.12;.88;1" dur="1.6s" begin="7.4s" repeatCount="indefinite"/></circle></svg></div>
+            </div>
+
+            <div class="card reveal gallery-card" id="captures">
+                <div class="card-content">
+                    <h2 class="gold-text">Captures d'écran</h2>
+                    <p class="gallery-hint">Cliquez sur une capture pour l'agrandir.</p>
+                    <!-- Pour ajouter une capture : copier l'image dans assets/captures/ puis remplacer un bloc « Capture à venir »
+                         par :
+                         <li><button type="button" class="shot" data-full="assets/captures/NOM.png" data-caption="Légende affichée sous l'image" data-alt="Description de l'image">
+                                 <img src="assets/captures/NOM.png" alt="Description de l'image" loading="lazy">
+                                 <span class="shot-zoom" aria-hidden="true"><i class="fa-solid fa-magnifying-glass-plus"></i></span></button></li> -->
+                    <ul class="gallery-grid">
+                        <li><div class="shot shot-empty" role="img" aria-label="Capture 1 : emplacement vide"><i class="fa-solid fa-image" aria-hidden="true"></i><span>Capture à venir</span></div></li>
+                        <li><div class="shot shot-empty" role="img" aria-label="Capture 2 : emplacement vide"><i class="fa-solid fa-image" aria-hidden="true"></i><span>Capture à venir</span></div></li>
+                        <li><div class="shot shot-empty" role="img" aria-label="Capture 3 : emplacement vide"><i class="fa-solid fa-image" aria-hidden="true"></i><span>Capture à venir</span></div></li>
+                        <li><div class="shot shot-empty" role="img" aria-label="Capture 4 : emplacement vide"><i class="fa-solid fa-image" aria-hidden="true"></i><span>Capture à venir</span></div></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card reveal glow-effect project-detail-grid">
+                <div class="project-content">
+                    <h2 class="gold-text">Compétences travaillées</h2>
+                    <h3>Gérer le patrimoine informatique</h3>
+                    <ul>
+                        <li>Recenser et identifier les ressources numériques</li>
+                        <li>Vérifier les conditions de la continuité d'un service informatique</li>
+                    </ul>
+                    <h3>Répondre aux incidents et demandes d'assistance</h3>
+                    <ul>
+                        <li>Collecter, suivre et orienter des demandes</li>
+                        <li>Traiter des demandes concernant les services réseaux et systèmes applicatifs</li>
+                        <li>Traiter des demandes concernant les applications</li>
+                    </ul>
+                    <h3>Organiser son développement professionnel</h3>
+                    <ul>
+                        <li>Mettre en œuvre des outils et stratégies de veille informationnelles</li>
+                        <li>Développer son projet professionnel</li>
+                    </ul>
+                </div>
+                <div class="project-visual"><svg class="anim anim-v anim-v2" data-r="4" viewBox="0 0 380 318" role="img" aria-label="Coupe animée d'un immeuble de trois étages : chaque étage correspond à un bloc de compétences validé par cette réalisation."><path class="cot dr" pathLength="1" style="--d:.1s" d="M210,56 V16"/><path class="pennant fd" style="--d:.5s" d="M210,16 L252,28 L210,40 Z"/><path class="nd nd-gold dr" pathLength="1" style="--d:0.3s" d="M70,56 h280 v80 h-280 z"/><text class="tx fd" style="--d:0.8s" x="90" y="87" text-anchor="start">Développement professionnel</text><text class="tx2 fd" style="--d:0.8999999999999999s" x="90" y="106" text-anchor="start">veille, projet</text><path class="cot dr" pathLength="1" style="--d:0.8999999999999999s" d="M318,74 l6,7 l13,-15"/><rect class="vm fd" x="270" y="112" width="14" height="14" style="--d:1.0s;animation-delay:1.1s"/><rect class="vm fd" x="296" y="112" width="14" height="14" style="--d:1.0s;animation-delay:1.6s"/><rect class="vm fd" x="322" y="112" width="14" height="14" style="--d:1.0s;animation-delay:2.1s"/><path class="nd dr" pathLength="1" style="--d:0.8999999999999999s" d="M70,136 h280 v80 h-280 z"/><text class="tx fd" style="--d:1.4s" x="90" y="167" text-anchor="start">Incidents et demandes</text><text class="tx2 fd" style="--d:1.5s" x="90" y="186" text-anchor="start">collecter, suivre, traiter</text><path class="cot dr" pathLength="1" style="--d:1.5s" d="M318,154 l6,7 l13,-15"/><rect class="vm fd" x="270" y="192" width="14" height="14" style="--d:1.5999999999999999s;animation-delay:1.7s"/><rect class="vm fd" x="296" y="192" width="14" height="14" style="--d:1.5999999999999999s;animation-delay:2.2s"/><rect class="vm fd" x="322" y="192" width="14" height="14" style="--d:1.5999999999999999s;animation-delay:2.7s"/><path class="nd dr" pathLength="1" style="--d:1.5s" d="M70,216 h280 v80 h-280 z"/><text class="tx fd" style="--d:2.0s" x="90" y="247" text-anchor="start">Patrimoine informatique</text><text class="tx2 fd" style="--d:2.1s" x="90" y="266" text-anchor="start">recenser, continuité</text><path class="cot dr" pathLength="1" style="--d:2.1s" d="M318,234 l6,7 l13,-15"/><rect class="vm fd" x="270" y="272" width="14" height="14" style="--d:2.2s;animation-delay:2.3s"/><rect class="vm fd" x="296" y="272" width="14" height="14" style="--d:2.2s;animation-delay:2.8s"/><rect class="vm fd" x="322" y="272" width="14" height="14" style="--d:2.2s;animation-delay:3.3s"/><path class="ln dr" pathLength="1" style="--d:2.0999999999999996s" d="M20,296 H360"/><path class="cot dr" pathLength="1" style="--d:2.3999999999999995s;opacity:.55" d="M40,296 l-8,10 M62,296 l-8,10 M84,296 l-8,10 M106,296 l-8,10 M128,296 l-8,10 M150,296 l-8,10 M172,296 l-8,10 M194,296 l-8,10 M216,296 l-8,10 M238,296 l-8,10 M260,296 l-8,10 M282,296 l-8,10 M304,296 l-8,10 M326,296 l-8,10 M348,296 l-8,10 "/><path class="cot dr" pathLength="1" style="--d:1.0s" d="M40,56 V296"/><path class="cot fd" style="--d:1.2s" d="M35,61 L45,51"/><path class="cot fd" style="--d:1.2s" d="M35,141 L45,131"/><path class="cot fd" style="--d:1.2s" d="M35,221 L45,211"/><path class="cot fd" style="--d:1.2s" d="M35,301 L45,291"/><text class="tx2 fd" style="--d:1.4s" transform="translate(30,176.0) rotate(-90)" text-anchor="middle">trois blocs de compétences</text></svg></div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; <span id="year"></span> Julien Chatillon - Étudiant BTS SIO SISR.</p>
+            <p class="footer-links"><a href="mentions-legales.html">Mentions légales</a><span class="sep">·</span><a href="confidentialite.html">Politique de confidentialité</a></p>
+        </footer>
+    </main>
+
+    <script>
+        // Spotlight Card Glow Effect for single page
+        const cards = document.querySelectorAll('.glow-effect');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .glow-effect::before {
+                background: radial-gradient(
+                    800px circle at var(--mouse-x) var(--mouse-y), 
+                    rgba(212, 175, 55, 0.4), 
+                    transparent 40%
+                );
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Animation reveal on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(reveal => {
+                setTimeout(() => {
+                    reveal.classList.add('active');
+                }, 100);
+            });
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
+    </script>
+
+    <dialog class="lightbox" id="lightbox" aria-label="Capture agrandie">
+        <button type="button" class="lb-btn lb-close" aria-label="Fermer"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        <button type="button" class="lb-btn lb-prev" aria-label="Capture précédente"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+        <button type="button" class="lb-btn lb-next" aria-label="Capture suivante"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        <figure><img src="" alt=""><figcaption></figcaption></figure>
+    </dialog>
+    <script src="realisation.js"></script>
+</body>
+
+</html>

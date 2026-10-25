@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réalisation 5 : Documentation de l'infrastructure personnelle | Julien Chatillon</title>
+    <meta name="description" content="Réalisation 5 : base de connaissances et documentation de l&#x27;infrastructure personnelle, publiée de façon anonymisée.">
+    <link rel="canonical" href="https://julien-chatillon.com/documentation-infra.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Julien Chatillon">
+    <meta property="og:title" content="Réalisation 5 : Documentation de l'infrastructure personnelle | Julien Chatillon">
+    <meta property="og:description" content="Réalisation 5 : base de connaissances et documentation de l&#x27;infrastructure personnelle, publiée de façon anonymisée.">
+    <meta property="og:url" content="https://julien-chatillon.com/documentation-infra.html">
+    <meta property="og:image" content="https://julien-chatillon.com/assets/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a3020'/><text x='50' y='68' font-family='sans-serif' font-size='50' font-weight='bold' fill='%23eab308' text-anchor='middle'>JC</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="realisation.css">
+</head>
+
+<body class="glass">
+    <main class="main-content" style="margin-left: 0; width: 100%;">
+        <section class="section" style="min-height: calc(100vh - 80px);">
+            <div class="page-header reveal"
+                style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 2rem;">
+                <a href="index.html#projets" class="btn-back" style="margin-bottom: 30px;"><i
+                        class="fa-solid fa-arrow-left"></i> Retour au
+                    portfolio</a>
+                <h1 class="section-title" style="margin-bottom: 0;">Réalisation 5 : Documentation de l'infrastructure
+                    personnelle</h1>
+            </div>
+
+            <div class="card reveal glow-effect project-detail-grid">
+                <div class="project-content">
+                    <h2 class="gold-text">Contexte</h2>
+                    <p>Avec l'évolution constante de mon laboratoire (PVE2) et de mon environnement de production
+                        (PVE1), la quantité de services déployés a rapidement augmenté : routage pfSense, annuaire
+                        Active Directory, tunnels WireGuard, supervision, etc. Il devenait indispensable de structurer
+                        mes prises de notes initialement réalisées sur Notion. Ce projet est né de la volonté de créer
+                        une véritable base de connaissances centralisée, capable de tracer l'architecture de mon réseau
+                        et de détailler mes procédures de déploiement. Pour partager ce travail sans compromettre la
+                        sécurité de mon infrastructure, j'ai mis au point un système de publication qui filtre les
+                        données sensibles d'un dépôt privé vers un dépôt GitHub public.</p>
+
+                    <h2 class="gold-text" style="margin-top: 2rem;">Objectifs</h2>
+                    <ul>
+                        <li>Centraliser et pérenniser la documentation technique de l'ensemble de l'infrastructure
+                            (topologies réseaux, stratégies de sauvegarde, PRA).</li>
+                        <li>Mettre en place un flux de publication sécurisé (dépôt privé vers dépôt public) garantissant
+                            l'anonymisation des adresses IP critiques et des informations sensibles.</li>
+                        <li>Rédiger des procédures d'exploitation et de configuration détaillées et reproductibles
+                            (création de cluster, certificats PKI, règles de pare-feu).</li>
+                        <li>Partager mon environnement d'apprentissage et mes maquettes avec d'autres étudiants ou
+                            professionnels via une plateforme accessible (GitHub).</li>
+                    </ul>
+
+                    <h2 class="gold-text" style="margin-top: 2rem;">Technologies utilisées</h2>
+                    <div class="tag-list"><span class="tag">GitHub</span><span class="tag">Markdown</span><span class="tag">Notion</span><span class="tag">Scripting</span></div>
+
+
+
+                    <h2 class="gold-text" style="margin-top: 2rem;">Bilan</h2>
+                    <p>Ce projet de documentation m'a permis de franchir un cap dans ma rigueur technique. La nécessité
+                        d'expliquer clairement des concepts complexes (comme la liaison Site-to-Site ou la configuration
+                        d'un serveur de secours) m'a forcé à consolider mes propres acquis. Le défi technique de la
+                        sanitisation des données m'a également sensibilisé aux enjeux de la sécurité de l'information
+                        publique. Aujourd'hui, je dispose non seulement d'un support fiable pour reconstruire ou
+                        dépanner n'importe quel segment de mon laboratoire en toute autonomie, mais aussi d'une vitrine
+                        professionnelle démontrant ma méthode de travail.</p>
+                </div>
+                <div class="project-visual"><svg class="anim anim-v anim-ctx" viewBox="0 0 380 368" role="img" aria-label="Plan animé du flux de documentation : les notes prises sur Notion sont rédigées en Markdown dans un dépôt privé, puis un script filtre les adresses IP et données sensibles avant publication sur un dépôt GitHub public."><path class="nd dr" pathLength="1" style="--d:0s" d="M70,16 h240 v56 h-240 z"/><text class="tx fd" style="--d:0.6s" x="88" y="41" text-anchor="start">Notion</text><text class="tx2 fd" style="--d:0.7s" x="88" y="59" text-anchor="start">prises de notes et schémas</text><path class="nd dr" pathLength="1" style="--d:0.5s" d="M70,108 h240 v56 h-240 z"/><text class="tx fd" style="--d:1.1s" x="88" y="133" text-anchor="start">Dépôt privé</text><text class="tx2 fd" style="--d:1.2s" x="88" y="151" text-anchor="start">procédures rédigées en Markdown</text><path class="nd nd-gold dr" pathLength="1" style="--d:1.0s" d="M70,200 h240 v56 h-240 z"/><text class="tx fd" style="--d:1.6s" x="88" y="225" text-anchor="start">Filtre</text><text class="tx2 fd" style="--d:1.7s" x="88" y="243" text-anchor="start">masque IP et données sensibles</text><path class="nd dr" pathLength="1" style="--d:1.5s" d="M70,292 h240 v56 h-240 z"/><text class="tx fd" style="--d:2.1s" x="88" y="317" text-anchor="start">GitHub public</text><text class="tx2 fd" style="--d:2.2s" x="88" y="335" text-anchor="start">documentation partageable</text><path id="p0" class="ln dr " pathLength="1" style="--d:1.0s" d="M190,72 V108"/><path id="p1" class="ln dr " pathLength="1" style="--d:1.4s" d="M190,164 V200"/><path id="p2" class="ln dr " pathLength="1" style="--d:1.8s" d="M190,256 V292"/><path class="cot dr" pathLength="1" style="--d:2.4s" d="M342,16 V348"/><path class="cot fd" style="--d:2.6s" d="M337,21 L347,11"/><path class="cot fd" style="--d:2.6s" d="M337,353 L347,343"/><text class="tx2 fd" style="--d:2.8s" transform="translate(333,182.0) rotate(-90)" text-anchor="middle">flux de publication</text><circle class="pkt" r="3.5" opacity="0"><animateMotion dur="1.4s" begin="5.0s" repeatCount="indefinite"><mpath href="#p0"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.12;.88;1" dur="1.4s" begin="5.0s" repeatCount="indefinite"/></circle><circle class="pkt" r="3.5" opacity="0"><animateMotion dur="1.4s" begin="5.8s" repeatCount="indefinite"><mpath href="#p1"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.12;.88;1" dur="1.4s" begin="5.8s" repeatCount="indefinite"/></circle><circle class="pkt" r="3.5" opacity="0"><animateMotion dur="1.4s" begin="6.6s" repeatCount="indefinite"><mpath href="#p2"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.12;.88;1" dur="1.4s" begin="6.6s" repeatCount="indefinite"/></circle></svg></div>
+            </div>
+
+            <div class="card reveal gallery-card" id="captures">
+                <div class="card-content">
+                    <h2 class="gold-text">Captures d'écran</h2>
+                    <p class="gallery-hint">Cliquez sur une capture pour l'agrandir.</p>
+                    <!-- Pour ajouter une capture : copier l'image dans assets/captures/ puis remplacer un bloc « Capture à venir »
+                         par :
+                         <li><button type="button" class="shot" data-full="assets/captures/NOM.png" data-caption="Légende affichée sous l'image" data-alt="Description de l'image">
+                                 <img src="assets/captures/NOM.png" alt="Description de l'image" loading="lazy">
+                                 <span class="shot-zoom" aria-hidden="true"><i class="fa-solid fa-magnifying-glass-plus"></i></span></button></li> -->
+                    <ul class="gallery-grid">
+                        <li><div class="shot shot-empty" role="img" aria-label="Capture 1 : emplacement vide"><i class="fa-solid fa-image" aria-hidden="true"></i><span>Capture à venir</span></div></li>
+                        <li><div class="shot shot-empty" role="img" aria-label="Capture 2 : emplacement vide"><i class="fa-solid fa-image" aria-hidden="true"></i><span>Capture à venir</span></div></li>
+                        <li><div class="shot shot-empty" role="img" aria-label="Capture 3 : emplacement vide"><i class="fa-solid fa-image" aria-hidden="true"></i><span>Capture à venir</span></div></li>
+                        <li><div class="shot shot-empty" role="img" aria-label="Capture 4 : emplacement vide"><i class="fa-solid fa-image" aria-hidden="true"></i><span>Capture à venir</span></div></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card reveal glow-effect project-detail-grid">
+                <div class="project-content">
+                    <h2 class="gold-text">Compétences travaillées</h2>
+                    <h3>Gérer le patrimoine informatique</h3>
+                    <ul>
+                        <li>Recenser et identifier les ressources numériques</li>
+                        <li>Exploiter des référentiels, normes et standards adoptés par le prestataire informatique</li>
+                    </ul>
+                    <h3>Mettre à disposition des utilisateurs un service informatique</h3>
+                    <ul>
+                        <li>Accompagner les utilisateurs dans la mise en place d'un service</li>
+                    </ul>
+                    <h3>Organiser son développement professionnel</h3>
+                    <ul>
+                        <li>Gérer son identité professionnelle</li>
+                        <li>Mettre en place son environnement d'apprentissage personnel</li>
+                        <li>Développer son projet professionnel</li>
+                    </ul>
+                </div>
+                <div class="project-visual"><svg class="anim anim-v anim-v2" data-r="5" viewBox="0 0 380 318" role="img" aria-label="Coupe animée d'un immeuble de trois étages : chaque étage correspond à un bloc de compétences validé par cette réalisation."><path class="cot dr" pathLength="1" style="--d:.1s" d="M210,56 V16"/><path class="pennant fd" style="--d:.5s" d="M210,16 L252,28 L210,40 Z"/><path class="nd nd-gold dr" pathLength="1" style="--d:0.3s" d="M70,56 h280 v80 h-280 z"/><text class="tx fd" style="--d:0.8s" x="90" y="87" text-anchor="start">Développement professionnel</text><text class="tx2 fd" style="--d:0.8999999999999999s" x="90" y="106" text-anchor="start">identité, environnement, projet</text><path class="cot dr" pathLength="1" style="--d:0.8999999999999999s" d="M318,74 l6,7 l13,-15"/><rect class="vm fd" x="270" y="112" width="14" height="14" style="--d:1.0s;animation-delay:1.1s"/><rect class="vm fd" x="296" y="112" width="14" height="14" style="--d:1.0s;animation-delay:1.6s"/><rect class="vm fd" x="322" y="112" width="14" height="14" style="--d:1.0s;animation-delay:2.1s"/><path class="nd dr" pathLength="1" style="--d:0.8999999999999999s" d="M70,136 h280 v80 h-280 z"/><text class="tx fd" style="--d:1.4s" x="90" y="167" text-anchor="start">Service aux utilisateurs</text><text class="tx2 fd" style="--d:1.5s" x="90" y="186" text-anchor="start">accompagner</text><path class="cot dr" pathLength="1" style="--d:1.5s" d="M318,154 l6,7 l13,-15"/><rect class="vm fd" x="270" y="192" width="14" height="14" style="--d:1.5999999999999999s;animation-delay:1.7s"/><rect class="vm fd" x="296" y="192" width="14" height="14" style="--d:1.5999999999999999s;animation-delay:2.2s"/><rect class="vm fd" x="322" y="192" width="14" height="14" style="--d:1.5999999999999999s;animation-delay:2.7s"/><path class="nd dr" pathLength="1" style="--d:1.5s" d="M70,216 h280 v80 h-280 z"/><text class="tx fd" style="--d:2.0s" x="90" y="247" text-anchor="start">Patrimoine informatique</text><text class="tx2 fd" style="--d:2.1s" x="90" y="266" text-anchor="start">recenser, référentiels</text><path class="cot dr" pathLength="1" style="--d:2.1s" d="M318,234 l6,7 l13,-15"/><rect class="vm fd" x="270" y="272" width="14" height="14" style="--d:2.2s;animation-delay:2.3s"/><rect class="vm fd" x="296" y="272" width="14" height="14" style="--d:2.2s;animation-delay:2.8s"/><rect class="vm fd" x="322" y="272" width="14" height="14" style="--d:2.2s;animation-delay:3.3s"/><path class="ln dr" pathLength="1" style="--d:2.0999999999999996s" d="M20,296 H360"/><path class="cot dr" pathLength="1" style="--d:2.3999999999999995s;opacity:.55" d="M40,296 l-8,10 M62,296 l-8,10 M84,296 l-8,10 M106,296 l-8,10 M128,296 l-8,10 M150,296 l-8,10 M172,296 l-8,10 M194,296 l-8,10 M216,296 l-8,10 M238,296 l-8,10 M260,296 l-8,10 M282,296 l-8,10 M304,296 l-8,10 M326,296 l-8,10 M348,296 l-8,10 "/><path class="cot dr" pathLength="1" style="--d:1.0s" d="M40,56 V296"/><path class="cot fd" style="--d:1.2s" d="M35,61 L45,51"/><path class="cot fd" style="--d:1.2s" d="M35,141 L45,131"/><path class="cot fd" style="--d:1.2s" d="M35,221 L45,211"/><path class="cot fd" style="--d:1.2s" d="M35,301 L45,291"/><text class="tx2 fd" style="--d:1.4s" transform="translate(30,176.0) rotate(-90)" text-anchor="middle">trois blocs de compétences</text></svg></div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; <span id="year"></span> Julien Chatillon - Étudiant BTS SIO SISR.</p>
+            <p class="footer-links"><a href="mentions-legales.html">Mentions légales</a><span class="sep">·</span><a href="confidentialite.html">Politique de confidentialité</a></p>
+        </footer>
+    </main>
+
+    <script>
+        // Spotlight Card Glow Effect for single page
+        const cards = document.querySelectorAll('.glow-effect');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .glow-effect::before {
+                background: radial-gradient(
+                    800px circle at var(--mouse-x) var(--mouse-y), 
+                    rgba(212, 175, 55, 0.4), 
+                    transparent 40%
+                );
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Animation reveal on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(reveal => {
+                setTimeout(() => {
+                    reveal.classList.add('active');
+                }, 100);
+            });
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
+    </script>
+
+    <dialog class="lightbox" id="lightbox" aria-label="Capture agrandie">
+        <button type="button" class="lb-btn lb-close" aria-label="Fermer"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        <button type="button" class="lb-btn lb-prev" aria-label="Capture précédente"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+        <button type="button" class="lb-btn lb-next" aria-label="Capture suivante"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        <figure><img src="" alt=""><figcaption></figcaption></figure>
+    </dialog>
+    <script src="realisation.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,373 @@
+/* ==========================================================================
+   Pages de réalisation : schémas animés, galerie de captures, agrandissement
+   ========================================================================== */
+
+/* ---------- Mise en page : texte à gauche, schéma figé en haut à droite ---------- */
+.project-detail-grid {
+    overflow: clip;
+}
+
+.project-visual {
+    height: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+    padding: 2.5rem 2rem 2.5rem 0;   /* même marge haute que le texte : le schéma s'aligne sur le titre */
+}
+
+.project-visual .anim {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: calc(100vh - 3rem);
+}
+
+/* Éléments du schéma */
+.anim .ln {
+    fill: none;
+    stroke: rgba(235, 241, 236, 0.38);
+    stroke-width: 1.5;
+}
+
+.anim .ln-dash {
+    stroke-dasharray: 5 5;
+}
+
+.anim .nd {
+    fill: rgba(255, 255, 255, 0.04);
+    stroke: rgba(235, 241, 236, 0.58);
+    stroke-width: 1.5;
+}
+
+.anim .nd-gold {
+    stroke: var(--accent-color);
+}
+
+.anim .tx {
+    fill: #ebf1ec;
+    font: 600 15px Outfit, sans-serif;
+}
+
+.anim .tx2 {
+    fill: #aebcb2;
+    font: 400 12px Outfit, sans-serif;
+}
+
+.anim .pkt {
+    fill: var(--accent-color);
+}
+
+.anim .cot {
+    fill: none;
+    stroke: rgba(196, 161, 94, 0.8);
+    stroke-width: 1.2;
+}
+
+/* A : les machines virtuelles « respirent » */
+.anim .vm {
+    fill: #6fcf97;
+    opacity: 0.18;
+    animation: vm-pulse 5s ease-in-out infinite;
+}
+
+@keyframes vm-pulse {
+
+    0%,
+    100% {
+        opacity: 0.16;
+    }
+
+    45% {
+        opacity: 0.85;
+    }
+}
+
+/* Sans animation : schéma complet et immobile, sans paquets */
+.anim.static .pkt {
+    display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .anim .vm {
+        animation: none;
+        opacity: 0.55;
+    }
+
+}
+
+
+/* tracé sans remplissage : rien n'apparaît avant d'être dessiné */
+.anim-v .nd {
+    fill: none;
+}
+
+.anim-v {
+    --anim-ready: 1;
+}
+
+@keyframes draw-on {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fade-in {
+    to {
+        opacity: 1;
+    }
+}
+
+.anim .pennant {
+    fill: var(--accent-color);
+}
+
+/* Les schémas verticaux se dessinent quand on arrive dessus (une seule fois).
+   Sans script ou avec « réduire les animations », ils s'affichent complets. */
+.anim-v.armed .dr {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+}
+
+.anim-v.armed .fd {
+    opacity: 0;
+}
+
+.anim-v.armed:not(.draw) .vm {
+    animation: none;
+}
+
+.anim-v.armed:not(.done) .pkt {
+    visibility: hidden;
+}
+
+.anim-v.armed.draw .dr {
+    animation: draw-on 1.3s ease forwards;
+    animation-delay: var(--d, 0s);
+}
+
+.anim-v.armed.draw .fd {
+    animation: fade-in 0.6s ease forwards;
+    animation-delay: var(--d, 0s);
+}
+
+/* après le tracé, les petits carrés gardent leur pulsation sans repartir de zéro */
+.anim-v.armed.draw .vm.fd {
+    animation: fade-in 0.6s ease forwards var(--d, 0s), vm-pulse 5s ease-in-out infinite;
+    animation-delay: var(--d, 0s), calc(var(--d, 0s) + 0.6s);
+}
+
+
+
+/* ---------- Pastilles de technologies (remplacent les styles en ligne) ---------- */
+.tag-list {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    border-radius: var(--border-radius);
+}
+
+/* ---------- Galerie de captures ---------- */
+.gallery-card .card-content {
+    padding: 2.5rem;
+}
+
+.gallery-hint {
+    margin: 0.25rem 0 1.5rem;
+    color: #aebcb2;
+}
+
+.gallery-card .gallery-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.gallery-card .gallery-grid li {
+    margin: 0;
+}
+
+.shot {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    text-align: center;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.28);
+    border: 1px solid var(--glass-edge);
+    border-radius: 0;
+}
+
+button.shot {
+    cursor: zoom-in;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+button.shot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+button.shot:hover,
+button.shot:focus-visible {
+    border-color: rgba(255, 255, 255, 0.28);
+    box-shadow: inset 0 -3px 0 var(--accent-color), 0 12px 28px rgba(0, 0, 0, 0.35);
+    transform: translateY(-3px);
+}
+
+button.shot:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+.shot-zoom {
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    place-items: center;
+    background: rgba(8, 13, 10, 0.78);
+    border: 1px solid var(--glass-edge);
+    color: var(--accent-color);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+button.shot:hover .shot-zoom,
+button.shot:focus-visible .shot-zoom {
+    opacity: 1;
+}
+
+/* emplacement vide : cadre en pointillés, en attente d'une capture */
+.shot-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 1px dashed rgba(235, 241, 236, 0.28);
+    background: rgba(255, 255, 255, 0.02);
+    color: #aebcb2;
+    font-size: 0.9rem;
+}
+
+.shot-empty i {
+    font-size: 1.5rem;
+    opacity: 0.6;
+}
+
+@media (max-width: 900px) {
+    .gallery-card .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-card .card-content {
+        padding: 1.5rem;
+    }
+}
+
+/* ---------- Agrandissement ---------- */
+.lightbox {
+    width: min(94vw, 1500px);
+    max-width: none;
+    max-height: 94vh;
+    margin: auto;
+    padding: 0;
+    color: var(--text-color);
+    background: rgba(12, 22, 16, 0.86);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 0;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox::backdrop {
+    background: rgba(4, 8, 6, 0.72);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+}
+
+.lightbox figure {
+    margin: 0;
+    padding: 1rem 1rem 0.75rem;
+}
+
+.lightbox img {
+    display: block;
+    max-width: 100%;
+    max-height: calc(94vh - 6.5rem);
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.lightbox figcaption {
+    padding: 0.75rem 3rem 0.25rem;
+    text-align: center;
+    color: #cfd9d2;
+}
+
+.lb-btn {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    background: rgba(8, 13, 10, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 0;
+    cursor: pointer;
+}
+
+.lb-btn:hover,
+.lb-btn:focus-visible {
+    background: var(--accent-color);
+    color: #0c130f;
+}
+
+.lb-close {
+    top: 0.75rem;
+    right: 0.75rem;
+}
+
+.lb-prev,
+.lb-next {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lb-prev {
+    left: 0.75rem;
+}
+
+.lb-next {
+    right: 0.75rem;
+}
+
+.lightbox.single .lb-prev,
+.lightbox.single .lb-next {
+    display: none;
+}

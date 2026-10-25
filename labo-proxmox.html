@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réalisation 1 : Création d'un labo d'expérimentation | Julien Chatillon</title>
+    <meta name="description" content="Réalisation 1 : un labo d&#x27;expérimentation sur cluster Proxmox, avec pare-feu pfSense, accès distant WireGuard et zones réseau isolées.">
+    <link rel="canonical" href="https://julien-chatillon.com/labo-proxmox.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Julien Chatillon">
+    <meta property="og:title" content="Réalisation 1 : Création d'un labo d'expérimentation | Julien Chatillon">
+    <meta property="og:description" content="Réalisation 1 : un labo d&#x27;expérimentation sur cluster Proxmox, avec pare-feu pfSense, accès distant WireGuard et zones réseau isolées.">
+    <meta property="og:url" content="https://julien-chatillon.com/labo-proxmox.html">
+    <meta property="og:image" content="https://julien-chatillon.com/assets/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a3020'/><text x='50' y='68' font-family='sans-serif' font-size='50' font-weight='bold' fill='%23eab308' text-anchor='middle'>JC</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="realisation.css">
+</head>
+
+<body class="glass">
+    <main class="main-content" style="margin-left: 0; width: 100%;">
+        <section class="section" style="min-height: calc(100vh - 80px);">
+            <div class="page-header reveal"
+                style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 2rem;">
+                <a href="index.html#projets" class="btn-back" style="margin-bottom: 30px;"><i
+                        class="fa-solid fa-arrow-left"></i> Retour au
+                    portfolio</a>
+                <h1 class="section-title" style="margin-bottom: 0;">Réalisation 1 : Création d'un labo d'expérimentation
+                </h1>
+            </div>
+
+            <div class="card reveal glow-effect project-detail-grid">
+                <div class="project-content">
+                    <h2 class="gold-text">Contexte</h2>
+                    <p>Ce projet est né d'un besoin technique et matériel concret : mon ordinateur personnel manquait de
+                        ressources (CPU/RAM) pour faire fonctionner simultanément les nombreuses machines virtuelles
+                        nécessaires à mes études. Pour pallier cette limite, j'ai pris l'initiative de déployer un
+                        hyperviseur sur un matériel plus performant et d'y accéder à distance. Cette démarche initiale
+                        s'est rapidement transformée en la conception d'un véritable centre de données virtualisé
+                        (Homelab). Ce laboratoire constitue aujourd'hui le socle technique de l'ensemble de mes projets
+                        et me permet d'héberger tous mes environnements de travaux pratiques.</p>
+
+                    <h2 class="gold-text" style="margin-top: 2rem;">Objectifs</h2>
+                    <ul>
+                        <li>Déployer un cluster de virtualisation (Proxmox VE) sur deux nœuds physiques pour répartir la
+                            charge des machines virtuelles et des conteneurs.</li>
+                        <li>Mettre en place un accès distant sécurisé (VPN WireGuard) pour administrer l'infrastructure
+                            et accéder aux ressources depuis n'importe où.</li>
+                        <li>Concevoir une topologie réseau segmentée avec un pare-feu principal (pfSense) pour assurer
+                            le routage et le filtrage des flux.</li>
+                        <li>Déployer diverses machines virtuelles (Windows, Linux, services) pour créer un environnement
+                            d'expérimentation complet pour mes TP.</li>
+                    </ul>
+
+                    <h2 class="gold-text" style="margin-top: 2rem;">Technologies utilisées</h2>
+                    <div class="tag-list"><span class="tag">Proxmox VE</span><span class="tag">pfSense</span><span class="tag">Virtualisation</span><span class="tag">WireGuard VPN</span><span class="tag">Linux</span></div>
+
+
+
+                    <h2 class="gold-text" style="margin-top: 2rem;">Bilan</h2>
+                    <p>Ce projet m'a permis de transformer une simple contrainte matérielle en une opportunité
+                        d'apprentissage majeure sur la gestion d'une infrastructure complète. J'ai particulièrement
+                        développé mes compétences en réseau et en sécurité lors de l'implémentation du tunnel WireGuard
+                        : il a fallu concevoir des règles de pare-feu précises sur pfSense pour autoriser le trafic
+                        entrant, tout en protégeant le reste du réseau interne. Aujourd'hui, je dispose d'un
+                        environnement bac à sable fluide et performant qui me permet d'expérimenter de nouvelles
+                        technologies (AD, Linux, supervision) et de réaliser l'intégralité de mes travaux pratiques en
+                        totale autonomie et mobilité.</p>
+                </div>
+                <div class="project-visual"><svg class="anim anim-v anim-ctx" viewBox="0 0 380 526" role="img" aria-label="Plan animé de la topologie du labo : Internet et l'accès VPN arrivent sur le pare-feu pfSense, qui distribue le trafic vers trois zones isolées : DMZ, supervision et labo."><path class="nd dr" pathLength="1" style="--d:0s" d="M130,16 h120 v40 h-120 z"/><text class="tx fd" style="--d:0.6s" x="190" y="41" text-anchor="middle">Internet</text><path class="nd nd-gold dr" pathLength="1" style="--d:0.3s" d="M125,100 h130 v72 h-130 z"/><text class="tx fd" style="--d:0.9s" x="190" y="132" text-anchor="middle">pfSense</text><text class="tx2 fd" style="--d:1.0s" x="190" y="151" text-anchor="middle">pare-feu et routage</text><path class="nd dr" pathLength="1" style="--d:0.5s" d="M10,114 h90 v44 h-90 z"/><text class="tx fd" style="--d:1.0s" x="55" y="132" text-anchor="middle">WireGuard</text><text class="tx2 fd" style="--d:1.1s" x="55" y="149" text-anchor="middle">accès distant</text><path id="p0" class="ln dr " pathLength="1" style="--d:0.9s" d="M190,56 V100"/><path id="p1" class="ln dr ln-dash" pathLength="1" style="--d:1.1s" d="M100,136 H125"/><path id="p2" class="ln dr " pathLength="1" style="--d:1.3s" d="M190,172 V214 H20 V298 H40"/><path id="p3" class="ln dr " pathLength="1" style="--d:1.5s" d="M20,214 V386 H40"/><path id="p4" class="ln dr " pathLength="1" style="--d:1.7s" d="M20,214 V474 H40"/><path class="nd dr" pathLength="1" style="--d:1.6s" d="M40,262 h290 v72 h-290 z"/><text class="tx fd" style="--d:2.4000000000000004s" x="60" y="295" text-anchor="start">DMZ</text><text class="tx2 fd" style="--d:2.5s" x="60" y="313" text-anchor="start">reverse proxy, site web</text><rect class="vm fd" x="272" y="290.0" width="16" height="16" style="--d:2.7s;animation-delay:2.7s"/><rect class="vm fd" x="296" y="290.0" width="16" height="16" style="--d:2.7s;animation-delay:3.3s"/><path class="nd dr" pathLength="1" style="--d:1.8s" d="M40,350 h290 v72 h-290 z"/><text class="tx fd" style="--d:2.6s" x="60" y="383" text-anchor="start">Supervision</text><text class="tx2 fd" style="--d:2.7s" x="60" y="401" text-anchor="start">Prometheus, Grafana</text><rect class="vm fd" x="272" y="378.0" width="16" height="16" style="--d:2.9000000000000004s;animation-delay:2.9s"/><rect class="vm fd" x="296" y="378.0" width="16" height="16" style="--d:2.9000000000000004s;animation-delay:3.5s"/><path class="nd dr" pathLength="1" style="--d:2.0s" d="M40,438 h290 v72 h-290 z"/><text class="tx fd" style="--d:2.8s" x="60" y="471" text-anchor="start">Labo</text><text class="tx2 fd" style="--d:2.9s" x="60" y="489" text-anchor="start">AD, GLPI, postes de TP</text><rect class="vm fd" x="224" y="466.0" width="16" height="16" style="--d:3.1s;animation-delay:3.1s"/><rect class="vm fd" x="248" y="466.0" width="16" height="16" style="--d:3.1s;animation-delay:3.7s"/><rect class="vm fd" x="272" y="466.0" width="16" height="16" style="--d:3.1s;animation-delay:4.3s"/><rect class="vm fd" x="296" y="466.0" width="16" height="16" style="--d:3.1s;animation-delay:4.9s"/><path class="cot dr" pathLength="1" style="--d:2.4s" d="M352,262 V510"/><path class="cot fd" style="--d:2.6s" d="M347,267 L357,257"/><path class="cot fd" style="--d:2.6s" d="M347,515 L357,505"/><text class="tx2 fd" style="--d:2.8s" transform="translate(343,386.0) rotate(-90)" text-anchor="middle">zones isolées</text><circle class="pkt" r="3.5" opacity="0"><animateMotion dur="1.6s" begin="5.0s" repeatCount="indefinite"><mpath href="#p0"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.12;.88;1" dur="1.6s" begin="5.0s" repeatCount="indefinite"/></circle><circle class="pkt" r="3.5" opacity="0"><animateMotion dur="1.4s" begin="5.6s" repeatCount="indefinite"><mpath href="#p1"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.12;.88;1" dur="1.4s" begin="5.6s" repeatCount="indefinite"/></circle><circle class="pkt" r="3.5" opacity="0"><animateMotion dur="2.8s" begin="5.4s" repeatCount="indefinite"><mpath href="#p2"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.12;.88;1" dur="2.8s" begin="5.4s" repeatCount="indefinite"/></circle><circle class="pkt" r="3.5" opacity="0"><animateMotion dur="3.2s" begin="6.2s" repeatCount="indefinite"><mpath href="#p3"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.12;.88;1" dur="3.2s" begin="6.2s" repeatCount="indefinite"/></circle><circle class="pkt" r="3.5" opacity="0"><animateMotion dur="3.6s" begin="6.8s" repeatCount="indefinite"><mpath href="#p4"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.12;.88;1" dur="3.6s" begin="6.8s" repeatCount="indefinite"/></circle></svg></div>
+            </div>
+
+            <div class="card reveal gallery-card" id="captures">
+                <div class="card-content">
+                    <h2 class="gold-text">Captures d'écran</h2>
+                    <p class="gallery-hint">Cliquez sur une capture pour l'agrandir.</p>
+                    <!-- Pour ajouter une capture : copier l'image dans assets/captures/ puis remplacer un bloc « Capture à venir »
+                         par :
+                         <li><button type="button" class="shot" data-full="assets/captures/NOM.png" data-caption="Légende affichée sous l'image" data-alt="Description de l'image">
+                                 <img src="assets/captures/NOM.png" alt="Description de l'image" loading="lazy">
+                                 <span class="shot-zoom" aria-hidden="true"><i class="fa-solid fa-magnifying-glass-plus"></i></span></button></li> -->
+                    <ul class="gallery-grid">
+                        <li><div class="shot shot-empty" role="img" aria-label="Capture 1 : emplacement vide"><i class="fa-solid fa-image" aria-hidden="true"></i><span>Capture à venir</span></div></li>
+                        <li><div class="shot shot-empty" role="img" aria-label="Capture 2 : emplacement vide"><i class="fa-solid fa-image" aria-hidden="true"></i><span>Capture à venir</span></div></li>
+                        <li><div class="shot shot-empty" role="img" aria-label="Capture 3 : emplacement vide"><i class="fa-solid fa-image" aria-hidden="true"></i><span>Capture à venir</span></div></li>
+                        <li><div class="shot shot-empty" role="img" aria-label="Capture 4 : emplacement vide"><i class="fa-solid fa-image" aria-hidden="true"></i><span>Capture à venir</span></div></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card reveal glow-effect project-detail-grid">
+                <div class="project-content">
+                    <h2 class="gold-text">Compétences travaillées</h2>
+                    <h3>Gérer le patrimoine informatique</h3>
+                    <ul>
+                        <li>Recenser et identifier les ressources numériques</li>
+                        <li>Gérer les sauvegardes</li>
+                    </ul>
+                    <h3>Travailler en mode projet</h3>
+                    <ul>
+                        <li>Analyser les objectifs et les modalités d'organisation d'un projet</li>
+                        <li>Planifier les activités</li>
+                    </ul>
+                    <h3>Mettre à disposition des utilisateurs un service informatique</h3>
+                    <ul>
+                        <li>Réaliser les tests d'intégration et d'acceptation d'un service</li>
+                        <li>Déployer un service</li>
+                    </ul>
+                    <h3>Organiser son développement professionnel</h3>
+                    <ul>
+                        <li>Mettre en place son environnement d'apprentissage personnel</li>
+                        <li>Développer son projet professionnel</li>
+                    </ul>
+                </div>
+                <div class="project-visual"><svg class="anim anim-v anim-v2" data-r="1" viewBox="0 0 380 398" role="img" aria-label="Coupe animée d'un immeuble de quatre étages : chaque étage correspond à un bloc de compétences validé par cette réalisation."><path class="cot dr" pathLength="1" style="--d:.1s" d="M210,56 V16"/><path class="pennant fd" style="--d:.5s" d="M210,16 L252,28 L210,40 Z"/><path class="nd nd-gold dr" pathLength="1" style="--d:0.3s" d="M70,56 h280 v80 h-280 z"/><text class="tx fd" style="--d:0.8s" x="90" y="87" text-anchor="start">Développement professionnel</text><text class="tx2 fd" style="--d:0.8999999999999999s" x="90" y="106" text-anchor="start">environnement, projet</text><path class="cot dr" pathLength="1" style="--d:0.8999999999999999s" d="M318,74 l6,7 l13,-15"/><rect class="vm fd" x="270" y="112" width="14" height="14" style="--d:1.0s;animation-delay:1.1s"/><rect class="vm fd" x="296" y="112" width="14" height="14" style="--d:1.0s;animation-delay:1.6s"/><rect class="vm fd" x="322" y="112" width="14" height="14" style="--d:1.0s;animation-delay:2.1s"/><path class="nd dr" pathLength="1" style="--d:0.8999999999999999s" d="M70,136 h280 v80 h-280 z"/><text class="tx fd" style="--d:1.4s" x="90" y="167" text-anchor="start">Service aux utilisateurs</text><text class="tx2 fd" style="--d:1.5s" x="90" y="186" text-anchor="start">tester, déployer</text><path class="cot dr" pathLength="1" style="--d:1.5s" d="M318,154 l6,7 l13,-15"/><rect class="vm fd" x="270" y="192" width="14" height="14" style="--d:1.5999999999999999s;animation-delay:1.7s"/><rect class="vm fd" x="296" y="192" width="14" height="14" style="--d:1.5999999999999999s;animation-delay:2.2s"/><rect class="vm fd" x="322" y="192" width="14" height="14" style="--d:1.5999999999999999s;animation-delay:2.7s"/><path class="nd dr" pathLength="1" style="--d:1.5s" d="M70,216 h280 v80 h-280 z"/><text class="tx fd" style="--d:2.0s" x="90" y="247" text-anchor="start">Mode projet</text><text class="tx2 fd" style="--d:2.1s" x="90" y="266" text-anchor="start">analyser, planifier</text><path class="cot dr" pathLength="1" style="--d:2.1s" d="M318,234 l6,7 l13,-15"/><rect class="vm fd" x="270" y="272" width="14" height="14" style="--d:2.2s;animation-delay:2.3s"/><rect class="vm fd" x="296" y="272" width="14" height="14" style="--d:2.2s;animation-delay:2.8s"/><rect class="vm fd" x="322" y="272" width="14" height="14" style="--d:2.2s;animation-delay:3.3s"/><path class="nd dr" pathLength="1" style="--d:2.0999999999999996s" d="M70,296 h280 v80 h-280 z"/><text class="tx fd" style="--d:2.5999999999999996s" x="90" y="327" text-anchor="start">Patrimoine informatique</text><text class="tx2 fd" style="--d:2.6999999999999997s" x="90" y="346" text-anchor="start">recenser, sauvegarder</text><path class="cot dr" pathLength="1" style="--d:2.6999999999999997s" d="M318,314 l6,7 l13,-15"/><rect class="vm fd" x="270" y="352" width="14" height="14" style="--d:2.8s;animation-delay:2.9s"/><rect class="vm fd" x="296" y="352" width="14" height="14" style="--d:2.8s;animation-delay:3.4s"/><rect class="vm fd" x="322" y="352" width="14" height="14" style="--d:2.8s;animation-delay:3.9s"/><path class="ln dr" pathLength="1" style="--d:2.6999999999999997s" d="M20,376 H360"/><path class="cot dr" pathLength="1" style="--d:2.9999999999999996s;opacity:.55" d="M40,376 l-8,10 M62,376 l-8,10 M84,376 l-8,10 M106,376 l-8,10 M128,376 l-8,10 M150,376 l-8,10 M172,376 l-8,10 M194,376 l-8,10 M216,376 l-8,10 M238,376 l-8,10 M260,376 l-8,10 M282,376 l-8,10 M304,376 l-8,10 M326,376 l-8,10 M348,376 l-8,10 "/><path class="cot dr" pathLength="1" style="--d:1.0s" d="M40,56 V376"/><path class="cot fd" style="--d:1.2s" d="M35,61 L45,51"/><path class="cot fd" style="--d:1.2s" d="M35,141 L45,131"/><path class="cot fd" style="--d:1.2s" d="M35,221 L45,211"/><path class="cot fd" style="--d:1.2s" d="M35,301 L45,291"/><path class="cot fd" style="--d:1.2s" d="M35,381 L45,371"/><text class="tx2 fd" style="--d:1.4s" transform="translate(30,216.0) rotate(-90)" text-anchor="middle">quatre blocs de compétences</text></svg></div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; <span id="year"></span> Julien Chatillon - Étudiant BTS SIO SISR.</p>
+            <p class="footer-links"><a href="mentions-legales.html">Mentions légales</a><span class="sep">·</span><a href="confidentialite.html">Politique de confidentialité</a></p>
+        </footer>
+    </main>
+
+    <script>
+        // Spotlight Card Glow Effect for single page
+        const cards = document.querySelectorAll('.glow-effect');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .glow-effect::before {
+                background: radial-gradient(
+                    800px circle at var(--mouse-x) var(--mouse-y), 
+                    rgba(212, 175, 55, 0.4), 
+                    transparent 40%
+                );
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Animation reveal on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(reveal => {
+                setTimeout(() => {
+                    reveal.classList.add('active');
+                }, 100);
+            });
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
+    </script>
+
+    <dialog class="lightbox" id="lightbox" aria-label="Capture agrandie">
+        <button type="button" class="lb-btn lb-close" aria-label="Fermer"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        <button type="button" class="lb-btn lb-prev" aria-label="Capture précédente"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+        <button type="button" class="lb-btn lb-next" aria-label="Capture suivante"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        <figure><img src="" alt=""><figcaption></figcaption></figure>
+    </dialog>
+    <script src="realisation.js"></script>
+</body>
+
+</html>

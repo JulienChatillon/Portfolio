@@ -32,23 +32,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Active Link Switching on Scroll
     const sections = document.querySelectorAll('section');
 
-    window.addEventListener('scroll', () => {
-        let current = '';
+    const updateActiveLink = () => {
+        // Repère situé au premier tiers de l'écran : la section dont le haut l'a dépassé est active
+        const marker = window.scrollY + window.innerHeight / 3;
+        let current = sections[0].getAttribute('id');
         sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (scrollY >= (sectionTop - sectionHeight / 3)) {
+            if (marker >= section.offsetTop) {
                 current = section.getAttribute('id');
             }
         });
 
+        // En bas de page, la dernière section (Contact) est plus courte que l'écran :
+        // son haut n'atteint jamais le repère, on l'active donc explicitement.
+        const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+        if (atBottom) {
+            current = sections[sections.length - 1].getAttribute('id');
+        }
+
         navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').includes(current)) {
-                link.classList.add('active');
-            }
+            link.classList.toggle('active', link.getAttribute('href') === '#' + current);
         });
-    });
+    };
+
+    window.addEventListener('scroll', updateActiveLink);
+    window.addEventListener('resize', updateActiveLink);
+    updateActiveLink();
 
     // 3. Scroll Reveal Animation
     const reveals = document.querySelectorAll('.reveal');
@@ -57,9 +65,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const windowHeight = window.innerHeight;
         const elementVisible = 100;
 
+        // En bas de page, les derniers éléments peuvent rester sous le seuil : on les révèle
+        const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+
         reveals.forEach(reveal => {
             const elementTop = reveal.getBoundingClientRect().top;
-            if (elementTop < windowHeight - elementVisible) {
+            if (atBottom || elementTop < windowHeight - elementVisible) {
                 reveal.classList.add('active');
             }
         });

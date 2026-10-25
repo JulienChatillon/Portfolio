@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions légales | Julien Chatillon</title>
+    <meta name="description" content="Mentions légales du portfolio de Julien Chatillon.">
+    <link rel="canonical" href="https://julien-chatillon.com/mentions-legales.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Julien Chatillon">
+    <meta property="og:title" content="Mentions légales | Julien Chatillon">
+    <meta property="og:description" content="Mentions légales du portfolio de Julien Chatillon.">
+    <meta property="og:url" content="https://julien-chatillon.com/mentions-legales.html">
+    <meta property="og:image" content="https://julien-chatillon.com/assets/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a3020'/><text x='50' y='68' font-family='sans-serif' font-size='50' font-weight='bold' fill='%23eab308' text-anchor='middle'>JC</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+</head>
+
+<body class="glass">
+    <main class="main-content" style="margin-left: 0; width: 100%;">
+        <section class="section" style="min-height: calc(100vh - 80px);">
+            <div class="page-header" style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 2rem;">
+                <a href="index.html" class="btn-back" style="margin-bottom: 30px;"><i
+                        class="fa-solid fa-arrow-left"></i> Retour au portfolio</a>
+                <h1 class="section-title" style="margin-bottom: 0;">Mentions légales</h1>
+            </div>
+
+            <div class="card legal-card">
+                <div class="card-content">
+                    <h2>Éditeur du site</h2>
+                    <p>Ce site est un portfolio personnel, publié à titre non commercial dans le cadre d'une formation
+                        (BTS SIO option SISR, MyDigitalSchool Angers).</p>
+                    <ul>
+                        <li>Éditeur et directeur de la publication : Julien Chatillon, personne physique.</li>
+                        <li>Contact : <a href="mailto:chatillon35310@gmail.com">chatillon35310@gmail.com</a></li>
+                    </ul>
+
+                    <h2>Hébergement</h2>
+                    <p>Le site est auto-hébergé par son éditeur sur une infrastructure personnelle : serveurs
+                        virtualisés sous Proxmox VE, derrière un pare-feu pfSense et un reverse proxy Nginx Proxy
+                        Manager. Cette architecture est détaillée dans la
+                        <a href="hebergement-portfolio.html">Réalisation 3</a>.</p>
+
+                    <h2>Nom de domaine</h2>
+                    <p>Le nom de domaine julien-chatillon.com est enregistré auprès d'Infomaniak Network SA
+                        (<a href="https://www.infomaniak.com" target="_blank" rel="noopener noreferrer">infomaniak.com</a>).</p>
+
+                    <h2>Propriété intellectuelle</h2>
+                    <p>Sauf mention contraire, les textes, schémas et visuels de ce site sont la propriété de Julien
+                        Chatillon. Toute reproduction ou réutilisation sans autorisation préalable est interdite.</p>
+                    <p>Les logos et badges de tiers (Cisco, CNIL…) restent la propriété de leurs détenteurs. Les
+                        attestations au format PDF sont publiées à titre de justificatif de formation.</p>
+                    <p>Les icônes proviennent de Font Awesome Free (licence CC BY 4.0) et la police de caractères Outfit
+                        est diffusée sous licence SIL Open Font License.</p>
+
+                    <h2>Données personnelles et cookies</h2>
+                    <p>Ce site n'utilise aucun cookie ni traceur. Le détail des données traitées et de vos droits figure
+                        dans la <a href="confidentialite.html">politique de confidentialité</a>.</p>
+
+                    <h2>Liens externes</h2>
+                    <p>Ce site contient des liens vers des sites tiers (GitHub, LinkedIn, sources de ma veille…).
+                        L'éditeur n'est pas responsable de leur contenu.</p>
+                    <p class="legal-update">Dernière mise à jour : 25 octobre 2026</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; <span id="year"></span> Julien Chatillon - Étudiant BTS SIO SISR.</p>
+            <p class="footer-links"><a href="mentions-legales.html">Mentions légales</a><span class="sep">·</span><a href="confidentialite.html">Politique de confidentialité</a></p>
+        </footer>
+    </main>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
