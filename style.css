@@ -1332,3 +1332,32 @@ body.glass .contact-card:hover::after {
         display: none;
     }
 }
+
+/* ==========================================================================
+   Barre latérale : défilement sur les écrans peu hauts
+   Sans cela, le bas du menu (Veille Info, Contact, mentions) était coupé.
+   ========================================================================== */
+.sidebar {
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+}
+
+.sidebar > * {
+    flex-shrink: 0;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
