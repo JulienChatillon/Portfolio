@@ -230,3 +230,5 @@
 .sch[open] summary { border-bottom: 1px solid var(--glass-edge); }
 .sch-img { display: block; width: 100%; padding: .8rem; background: none; border: 0; cursor: zoom-in; }
 .sch-img img { width: 100%; height: auto; border-radius: 6px; display: block; }
+#competences .card-content > p { margin-bottom: .2rem; }
+#competences .cp { margin-top: 0; }
