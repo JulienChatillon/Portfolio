@@ -1361,3 +1361,14 @@ body.glass .contact-card:hover::after {
 .sidebar::-webkit-scrollbar-track {
     background: transparent;
 }
+
+/* Bouton PDF du tableau de synthese (visible) */
+.table-header-flex {
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.table-header-flex .pdf-link {
+    margin-top: 0;
+    padding: 0.6rem 1.2rem;
+}
