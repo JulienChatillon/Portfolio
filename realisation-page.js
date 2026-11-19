@@ -145,3 +145,24 @@
         align(); setTimeout(align, 300);
     }
 })();
+
+(function () {
+    var car = document.querySelector('.gal-car');
+    if (!car) return;
+    var tr = car.querySelector('.gal-track'), prev = car.querySelector('.gal-prev'), next = car.querySelector('.gal-next');
+    function upd() {
+        var can = tr.scrollWidth > tr.clientWidth + 4;
+        var p = can && tr.scrollLeft > 4, n = can && tr.scrollLeft < tr.scrollWidth - tr.clientWidth - 4;
+        prev.hidden = !p; next.hidden = !n;
+        car.classList.toggle('can-prev', p); car.classList.toggle('can-next', n);
+    }
+    function go(dir) {
+        var li = tr.querySelector('li');
+        tr.scrollBy({ left: dir * (li.getBoundingClientRect().width + 16) * (window.innerWidth >= 1000 ? 3 : window.innerWidth >= 640 ? 2 : 1), behavior: 'smooth' });
+    }
+    prev.addEventListener('click', function () { go(-1); });
+    next.addEventListener('click', function () { go(1); });
+    tr.addEventListener('scroll', upd, { passive: true });
+    window.addEventListener('resize', upd);
+    upd();
+})();
